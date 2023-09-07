@@ -17,7 +17,7 @@ class HotelViewModel: ObservableObject {
         getData()
     }
 
-    func getData() {
+    private func getData() {
         Task {
             do {
                 let hotel = try await NetworkServiceAA.shared.getData(dataset: Hotel.clearHotel)
@@ -28,6 +28,19 @@ class HotelViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+    }
+
+    func preisFormat(prise: Int) -> String {
+        let priseStringArray = Array(String(prise)).map { String($0) }
+        var priseString = ""
+        for index in 0 ..< priseStringArray.count {
+            priseString += priseStringArray[index]
+            if (priseStringArray.count - 1 - index) % 3 == 0 {
+                priseString += " "
+            }
+        }
+        let itog = "от " + priseString  + " ₽"
+        return itog
     }
 
 }
