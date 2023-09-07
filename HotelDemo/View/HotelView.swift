@@ -14,8 +14,15 @@ struct HotelView: View {
     var body: some View {
         VStack {
             Text("Наш отель мы так всем рады)")
+            Button {
+                coordinator.goToHotelRoom()
+            } label: {
+                Text("Hotel Room")
+            }
+
         }
         .navigationTitle("Отель")
+        .navigationBarTitleDisplayMode(.inline)
     }
 
 }

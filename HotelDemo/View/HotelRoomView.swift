@@ -8,13 +8,34 @@
 import SwiftUI
 
 struct HotelRoomView: View {
+
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    @EnvironmentObject var coordinator: Coordinator
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("HotelRoom")
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: buttonBack(complition: {
+            self.presentationMode.wrappedValue.dismiss()
+        }))
+        .navigationTitle("HotelRoom")
+        .navigationBarTitleDisplayMode(.inline)
     }
+    
 }
 
 struct HotelRoomView_Previews: PreviewProvider {
+
     static var previews: some View {
-        HotelRoomView()
+        NavigationStack {
+            HotelRoomView()
+                .environmentObject(Coordinator())
+        }
     }
+
 }
+
+

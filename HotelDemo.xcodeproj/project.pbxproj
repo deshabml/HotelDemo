@@ -17,6 +17,7 @@
 		DDC6E0862AA86C2900EF19ED /* HotelRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6E0852AA86C2900EF19ED /* HotelRoomView.swift */; };
 		DDC6E0882AA86C4600EF19ED /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6E0872AA86C4600EF19ED /* BookingView.swift */; };
 		DDC6E08A2AA86CAD00EF19ED /* PaidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6E0892AA86CAD00EF19ED /* PaidView.swift */; };
+		DDC6E0942AA9AD4D00EF19ED /* View+buttonBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6E0932AA9AD4D00EF19ED /* View+buttonBack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		DDC6E0852AA86C2900EF19ED /* HotelRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelRoomView.swift; sourceTree = "<group>"; };
 		DDC6E0872AA86C4600EF19ED /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
 		DDC6E0892AA86CAD00EF19ED /* PaidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidView.swift; sourceTree = "<group>"; };
+		DDC6E0932AA9AD4D00EF19ED /* View+buttonBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+buttonBack.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC6E07A2AA8531800EF19ED /* Application */,
+				DDC6E0922AA9AD2000EF19ED /* Core */,
 				DDC6E07B2AA8533F00EF19ED /* View */,
 				DDC6E07C2AA866B100EF19ED /* Coordinator */,
 				DDC6E0792AA852F100EF19ED /* Supporting files */,
@@ -104,6 +107,7 @@
 				DDC6E0852AA86C2900EF19ED /* HotelRoomView.swift */,
 				DDC6E0872AA86C4600EF19ED /* BookingView.swift */,
 				DDC6E0892AA86CAD00EF19ED /* PaidView.swift */,
+				DDC6E08F2AA9A68B00EF19ED /* Components */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +119,21 @@
 				DDC6E07F2AA8674000EF19ED /* MyPage.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		DDC6E08F2AA9A68B00EF19ED /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DDC6E0922AA9AD2000EF19ED /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DDC6E0932AA9AD4D00EF19ED /* View+buttonBack.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +213,7 @@
 				DDC6E06C2AA851F400EF19ED /* HotelDemoApp.swift in Sources */,
 				DDC6E0822AA869B900EF19ED /* HotelView.swift in Sources */,
 				DDC6E0802AA8674000EF19ED /* MyPage.swift in Sources */,
+				DDC6E0942AA9AD4D00EF19ED /* View+buttonBack.swift in Sources */,
 				DDC6E07E2AA866C800EF19ED /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

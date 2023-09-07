@@ -9,12 +9,16 @@ import SwiftUI
 
 @MainActor
 final class Coordinator: ObservableObject {
-
+    
     @Published var path = NavigationPath()
     @Published var page: MyPage = .hotel
 
     func goHome() {
         path.removeLast(path.count)
+    }
+
+    func goToHotelRoom() {
+        path.append(MyPage.hotelRoom)
     }
 
     @ViewBuilder
