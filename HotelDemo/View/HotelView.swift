@@ -16,18 +16,7 @@ struct HotelView: View {
         VStack {
             imageCharacter()
             if let hotel = viewModel.hotel {
-                HStack {
-                    HStack {
-                        Image(systemName: "star.fill")
-                        Text("\(hotel.rating)" + " " +  hotel.ratingName)
-                    }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .foregroundColor(Color("OrangeColor"))
-                    .background(Color("YellovLiteColor"))
-                    .cornerRadius(5)
-                    Spacer()
-                }
+                rating(rating: hotel.rating, ratingName: hotel.ratingName)
             }
             Text("Наш отель мы так всем рады)")
             Button {
@@ -72,6 +61,25 @@ extension HotelView {
             }
         }
         .padding()
+    }
+
+    private func rating(rating: Int, ratingName: String) -> some View {
+        HStack {
+            HStack(spacing: 4) {
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 15, height: 15)
+                Text("\(rating)" + " " + ratingName)
+            }
+            .font(.custom("SF-Pro-Display-Regular", size: CGFloat(16)))
+            .padding(.horizontal, 10)
+            .padding(.vertical, 5)
+            .foregroundColor(Color("OrangeColor"))
+            .background(Color("YellovLiteColor"))
+            .cornerRadius(5)
+            Spacer()
+        }
     }
     
 }

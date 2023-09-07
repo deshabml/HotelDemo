@@ -18,6 +18,7 @@ struct MainView: View {
                     coordinator.getPage(page)
                 }
         }
+        .preferredColorScheme(.light)
     }
     
 }
