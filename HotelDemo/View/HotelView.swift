@@ -11,12 +11,13 @@ struct HotelView: View {
 
     @EnvironmentObject var coordinator: Coordinator
     @StateObject private var viewModel = HotelViewModel()
+    @State private var currentIndex = 0
 
     var body: some View {
         ScrollView {
             VStack (spacing: 16) {
                 VStack {
-                    VStack {
+                    VStack(spacing: 16) {
                         imageCharacter()
                         basicInformation()
                     }
@@ -38,6 +39,7 @@ struct HotelView: View {
             }
             .background(Color("BackgraundGreyColor"))
         }
+        //        .animation(.easeInOut, value: selectedTab)
         .background(Color.white)
         .navigationTitle("Отель")
         .navigationBarTitleDisplayMode(.inline)
@@ -60,19 +62,48 @@ extension HotelView {
 
     private func imageCharacter() -> some View {
         VStack {
-            if let image = viewModel.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 343, height: 257)
-                    .cornerRadius(16)
+            if let images = viewModel.images {
+                TabView(selection: $currentIndex) {
+                    ForEach(0 ..< images.count, id: \.self) { index in
+                        Image(uiImage: images[index])
+                            .resizable()
+                            .scaledToFill()
+                            .frame(maxWidth: .infinity)
+                            .clipped()
+                            .background(.black)
+                    }
+                }
+                .frame(height: 257)
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .cornerRadius(15)
+                .overlay {
+                    VStack {
+                        Spacer()
+                        HStack(spacing: 5) {
+                            ForEach(0..<images.count, id: \.self) { index in
+                                Circle()
+                                    .frame(width: 7, height: 7)
+                                    .foregroundColor(.black.opacity(viewModel.colorBarImageElement(index: index, currentIndex: currentIndex)))
+                                    .onTapGesture {
+                                        withAnimation {
+                                            currentIndex = index
+                                        }
+                                    }
+                            }
+                        }
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .padding(8)
+                    }
+                }
             } else {
                 ActivityIndicator()
                     .frame(width: 100, height: 257)
                     .foregroundColor(.gray)
             }
         }
-        .padding()
     }
 
     private func rating(rating: Int, ratingName: String) -> some View {
@@ -109,11 +140,12 @@ extension HotelView {
                 Text(viewModel.preisFormat())
                     .font(.custom("SF Pro Display",
                                   size: CGFloat(30)))
+                    .bold()
                 Text(viewModel.hotel.priceForIt.lowercased())
                     .foregroundColor(.secondary)
                     .font(.custom("SF Pro Display", size: CGFloat(16)))
             }
         }
     }
-    
+
 }

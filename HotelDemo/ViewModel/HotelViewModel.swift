@@ -10,7 +10,7 @@ import UIKit
 
 class HotelViewModel: ObservableObject {
 
-    @Published var image: UIImage?
+    @Published var images: [UIImage]?
     @Published var hotel = Hotel.clearHotel
 
     init() {
@@ -23,9 +23,10 @@ class HotelViewModel: ObservableObject {
                 let hotel = try await NetworkServiceAA.shared.getData(dataset: Hotel.clearHotel)
                 DispatchQueue.main.async {
                     self.hotel = hotel
+                    self.getImages()
                 }
             } catch {
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
@@ -43,4 +44,36 @@ class HotelViewModel: ObservableObject {
         return itog
     }
 
+    func getImages() {
+        let imageUrls = hotel.imageUrls
+        imageUrls.forEach { url in
+            Task {
+                do {
+                    let image = try await NetworkServiceAA.shared.downloadImage(url: url)
+                    DispatchQueue.main.async {
+                        if let _ = self.images {
+                            self.images?.append(image)
+                        } else {
+                            self.images = [image]
+                        }
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func colorBarImageElement(index: Int, currentIndex: Int) -> Double {
+        if currentIndex == index {
+            return 1
+        } else {
+            if currentIndex > index {
+                return Double(index + 1) / Double(currentIndex * 5)
+            } else {
+                return Double(currentIndex + 1) / Double(index * 5)
+            }
+        }
+    }
+    
 }

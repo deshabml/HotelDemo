@@ -10,5 +10,6 @@ enum NetworkError: Error {
     case badUrl
     case badResponse
     case invalidDecoding
+    case noImage
 
 }
