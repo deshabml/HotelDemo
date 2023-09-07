@@ -11,7 +11,7 @@ import UIKit
 class HotelViewModel: ObservableObject {
 
     @Published var image: UIImage?
-    @Published var hotel: Hotel?
+    @Published var hotel = Hotel.clearHotel
 
     init() {
         getData()
@@ -30,8 +30,8 @@ class HotelViewModel: ObservableObject {
         }
     }
 
-    func preisFormat(prise: Int) -> String {
-        let priseStringArray = Array(String(prise)).map { String($0) }
+    func preisFormat() -> String {
+        let priseStringArray = Array(String(hotel.minimalPrice)).map { String($0) }
         var priseString = ""
         for index in 0 ..< priseStringArray.count {
             priseString += priseStringArray[index]

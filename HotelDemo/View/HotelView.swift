@@ -18,25 +18,7 @@ struct HotelView: View {
                 VStack {
                     VStack {
                         imageCharacter()
-                        if let hotel = viewModel.hotel {
-                            VStack(alignment: .leading, spacing: 12) {
-                                rating(rating: hotel.rating, ratingName: hotel.ratingName)
-                                Text(hotel.name)
-                                    .font(.custom("SF-Pro-Display-Regular", size: CGFloat(22)))
-                                Button {
-                                } label: {
-                                    Text(hotel.adress)
-                                        .font(.custom("SF-Pro-Display-Regular", size: CGFloat(14)))
-                                }
-                                HStack(alignment: .bottom) {
-                                    Text(viewModel.preisFormat(prise: hotel.minimalPrice))
-                                        .font(.custom("SF-Pro-Display-Regular", size: CGFloat(30)))
-                                    Text(hotel.priceForIt.lowercased())
-                                        .foregroundColor(.secondary)
-                                        .font(.custom("SF-Pro-Display-Regular", size: CGFloat(16)))
-                                }
-                            }
-                        }
+                        basicInformation()
                     }
                     .padding()
                 }
@@ -100,13 +82,38 @@ extension HotelView {
                 .scaledToFit()
                 .frame(width: 15, height: 15)
             Text("\(rating)" + " " + ratingName)
+            Spacer()
         }
-        .font(.custom("SF-Pro-Display-Regular", size: CGFloat(16)))
+        .font(.custom("SF-Pro-Display-Regular",
+                      size: CGFloat(16)))
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
         .foregroundColor(Color("OrangeColor"))
         .background(Color("YellovLiteColor"))
         .cornerRadius(5)
+    }
+
+    private func basicInformation() -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            rating(rating: viewModel.hotel.rating, ratingName: viewModel.hotel.ratingName)
+            Text(viewModel.hotel.name)
+                .font(.custom("SF Pro Display",
+                              size: CGFloat(22)))
+            Button {
+            } label: {
+                Text(viewModel.hotel.adress)
+                    .font(.custom("SF Pro Display",
+                                  size: CGFloat(14)))
+            }
+            HStack(alignment: .bottom) {
+                Text(viewModel.preisFormat())
+                    .font(.custom("SF Pro Display",
+                                  size: CGFloat(30)))
+                Text(viewModel.hotel.priceForIt.lowercased())
+                    .foregroundColor(.secondary)
+                    .font(.custom("SF Pro Display", size: CGFloat(16)))
+            }
+        }
     }
     
 }
