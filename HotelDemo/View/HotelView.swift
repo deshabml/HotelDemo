@@ -12,9 +12,15 @@ struct HotelView: View {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject private var viewModel = HotelViewModel()
     @State private var currentIndex = 0
+//    private var columns: [GridItem] = [
+//        GridItem(.adaptive(minimum: 100, maximum: 200)),
+////        GridItem(.adaptive(minimum: 100, maximum: 300)),
+////        GridItem(.adaptive(minimum: 100, maximum: 300)),
+//        GridItem(.adaptive(minimum: 100, maximum: 200))
+//    ]
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack (spacing: 16) {
                 VStack {
                     VStack(spacing: 16) {
@@ -26,6 +32,85 @@ struct HotelView: View {
                 .background(Color.white)
                 .cornerRadius(12)
                 VStack {
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text("Об отеле")
+                            .font(.custom("SF Pro Display",
+                                          size: CGFloat(22)))
+//                        LazyVGrid(
+//                                        columns: columns
+////                                        alignment: .center,
+////                                        spacing: 16,
+////                                        pinnedViews: [.sectionHeaders, .sectionFooters]
+//                                    ) {
+//                        Grid(tracks: [.fr(1), .pt(150), .fr(2)]) {
+//                            Text("Ehffff")
+//                                .gridSpan(column: 2)
+//                            Text("Ehffff")
+//                                .gridSpan(row: 2)
+//                            Text("Ehffff")
+//                            Text("Ehffff")
+//                            Text("Ehffff")
+//                                .gridSpan(column: 2, row: 3)
+//                            Text("Ehffff")
+//                            Text("Ehffff")
+//                                .gridSpan(row: 2)
+//                        }
+//                        List {
+//                        GeometryReader { proxy in
+//                            var views: [any View] = []
+//                            for i in 0 ..< viewModel.hotel.aboutTheHotel.peculiarities.count {
+//                                if viewModel.hotel.aboutTheHotel.peculiarities[i].rect > proxy.frame.width {
+//                                    HStack {
+//                                        viewModel.hotel.aboutTheHotel.peculiarities[i]
+//                                        viewModel.hotel.aboutTheHotel.peculiarities[i + 1]
+//
+//                                    }
+//                                } else {
+//                                    HStack {
+//                                        viewModel.hotel.aboutTheHotel.peculiarities[i]
+//                                    }
+//                                }
+//
+//                            }
+//                            ForEach(0 ..< viewModel.hotel.aboutTheHotel.peculiarities.count, id: \.self) { index in
+//                                Text(viewModel.hotel.aboutTheHotel.peculiarities[index])
+////                                    .fixedSize(horizontal: true, vertical: false)
+//                                    .font(.custom("SF Pro Display",
+//                                                  size: CGFloat(16)))
+//                                    .foregroundColor(.secondary)
+////                                    .padding(.horizontal, 10)
+////                                    .padding(.vertical, 5)
+////                                    .background(Color("BackgraundGreyColor"))
+////                                    .gridCellColumns(4)
+//                                //                                    .frame(height: 20)
+//                            }
+//                        }
+////                        .frame(maxWidth: 300)
+////                        }
+//
+////                        .frame(maxWidth: .infinity)
+////                        .frame(height: 100)
+////                            ForEach(0 ..< viewModel.hotel.aboutTheHotel.peculiarities.count, id: \.self) { index in
+////                                Text(viewModel.hotel.aboutTheHotel.peculiarities[index])
+////                                    .font(.custom("SF Pro Display",
+////                                                  size: CGFloat(16)))
+////                                    .foregroundColor(.secondary)
+////                                    .padding(.horizontal, 10)
+////                                    .padding(.vertical, 5)
+////                                    .background(Color("BackgraundGreyColor"))
+//////                                    .frame(height: 20)
+////                            }
+//
+////                        }
+////                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        ///
+
+                        Text(viewModel.hotel.aboutTheHotel.description)
+                            .font(.custom("SF Pro Display",
+                                          size: CGFloat(16)))
+                        ditailedList()
+                    }
+                    .padding()
                     Text("Наш отель мы так всем рады)")
                     Button {
                         coordinator.goToHotelRoom()
@@ -39,7 +124,7 @@ struct HotelView: View {
             }
             .background(Color("BackgraundGreyColor"))
         }
-        //        .animation(.easeInOut, value: selectedTab)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .navigationTitle("Отель")
         .navigationBarTitleDisplayMode(.inline)
@@ -107,21 +192,23 @@ extension HotelView {
     }
 
     private func rating(rating: Int, ratingName: String) -> some View {
-        HStack(spacing: 4) {
-            Image(systemName: "star.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 15, height: 15)
-            Text("\(rating)" + " " + ratingName)
+        HStack {
+            HStack(spacing: 4) {
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 15, height: 15)
+                Text("\(rating)" + " " + ratingName)
+            }
+            .font(.custom("SF Pro Display",
+                          size: CGFloat(16)))
+            .padding(.horizontal, 10)
+            .padding(.vertical, 5)
+            .foregroundColor(Color("OrangeColor"))
+            .background(Color("YellovLiteColor"))
+            .cornerRadius(5)
             Spacer()
         }
-        .font(.custom("SF-Pro-Display-Regular",
-                      size: CGFloat(16)))
-        .padding(.horizontal, 10)
-        .padding(.vertical, 5)
-        .foregroundColor(Color("OrangeColor"))
-        .background(Color("YellovLiteColor"))
-        .cornerRadius(5)
     }
 
     private func basicInformation() -> some View {
@@ -146,6 +233,39 @@ extension HotelView {
                     .font(.custom("SF Pro Display", size: CGFloat(16)))
             }
         }
+    }
+
+    private func ditailedList() -> some View {
+        VStack {
+            List {
+                Section {
+                    ForEach(viewModel.detailedInfo, id: \.self) { detail in
+                        HStack {
+                            Image(detail.imegeName)
+                                .frame(width: 24, height: 24)
+                            VStack(alignment: .leading) {
+                                Text(detail.name)
+                                    .font(.custom("SF Pro Display",
+                                                  size: CGFloat(16)))
+                                Text("Самое необходимое")
+                                    .font(.custom("SF Pro Display",
+                                                  size: CGFloat(14)))
+                                    .foregroundColor(.secondary)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
+                        .frame(maxWidth: .infinity)
+                        .listRowBackground(Color.clear)
+                    }
+                }
+                .listSectionSeparator(.hidden, edges: .bottom)
+            }
+            .listStyle(.plain)
+            .frame(height: 176)
+        }
+        .background(Color("ListBackgraundColor"))
+        .cornerRadius(12)
     }
 
 }

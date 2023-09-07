@@ -10,7 +10,6 @@ import SwiftUI
 struct HotelRoomView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
     @EnvironmentObject var coordinator: Coordinator
 
     var body: some View {

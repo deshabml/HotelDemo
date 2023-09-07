@@ -12,6 +12,9 @@ class HotelViewModel: ObservableObject {
 
     @Published var images: [UIImage]?
     @Published var hotel = Hotel.clearHotel
+    let detailedInfo = [Detailed(name: "Удобства", imegeName: "Happy"),
+                        Detailed(name: "Что включено", imegeName: "TickSquare"),
+                        Detailed(name: "Что не включено", imegeName: "CloseSquare")]
 
     init() {
         getData()
