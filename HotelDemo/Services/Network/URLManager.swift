@@ -16,7 +16,7 @@ class URLManager {
     private init() { }
 
     func createUrl(endpoint: EndPoint) -> URL? {
-        var urlStr = tunnel + server.rawValue + endpoint.rawValue
+        let urlStr = tunnel + server.rawValue + endpoint.rawValue
         return URL(string: urlStr)
     }
 

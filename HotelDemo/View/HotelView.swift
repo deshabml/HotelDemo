@@ -15,6 +15,20 @@ struct HotelView: View {
     var body: some View {
         VStack {
             imageCharacter()
+            if let hotel = viewModel.hotel {
+                HStack {
+                    HStack {
+                        Image(systemName: "star.fill")
+                        Text("\(hotel.rating)" + " " +  hotel.ratingName)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .foregroundColor(Color("OrangeColor"))
+                    .background(Color("YellovLiteColor"))
+                    .cornerRadius(5)
+                    Spacer()
+                }
+            }
             Text("Наш отель мы так всем рады)")
             Button {
                 coordinator.goToHotelRoom()
@@ -23,6 +37,7 @@ struct HotelView: View {
             }
             Spacer()
         }
+        .padding()
         .navigationTitle("Отель")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -52,7 +67,7 @@ extension HotelView {
                     .cornerRadius(16)
             } else {
                 ActivityIndicator()
-                    .frame(width: 343, height: 257)
+                    .frame(width: 100, height: 257)
                     .foregroundColor(.gray)
             }
         }

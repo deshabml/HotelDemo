@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD56D0132AAA041100854F58 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD56D0122AAA041100854F58 /* SF-Pro-Display-Regular.otf */; };
 		DDC6E06C2AA851F400EF19ED /* HotelDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6E06B2AA851F400EF19ED /* HotelDemoApp.swift */; };
 		DDC6E0702AA851F600EF19ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC6E06F2AA851F600EF19ED /* Assets.xcassets */; };
 		DDC6E0732AA851F600EF19ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC6E0722AA851F600EF19ED /* Preview Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD56D0122AAA041100854F58 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		DDC6E0682AA851F400EF19ED /* HotelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC6E06B2AA851F400EF19ED /* HotelDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDemoApp.swift; sourceTree = "<group>"; };
 		DDC6E06F2AA851F600EF19ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD56D0112AAA03E200854F58 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DD56D0122AAA041100854F58 /* SF-Pro-Display-Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		DDC6E05F2AA851F400EF19ED = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		DDC6E0792AA852F100EF19ED /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				DD56D0112AAA03E200854F58 /* Font */,
 				DDC6E06F2AA851F600EF19ED /* Assets.xcassets */,
 			);
 			path = "Supporting files";
@@ -256,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC6E0732AA851F600EF19ED /* Preview Assets.xcassets in Resources */,
+				DD56D0132AAA041100854F58 /* SF-Pro-Display-Regular.otf in Resources */,
 				DDC6E0702AA851F600EF19ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
