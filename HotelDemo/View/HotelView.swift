@@ -19,7 +19,7 @@ struct HotelView: View {
                     VStack(spacing: 16) {
                         ImageCharacter(viewModel: viewModel.imagesCharacterVM)
                         VStack(alignment: .leading, spacing: 16) {
-                            BasicInformation(viewModel: viewModel.BasicInfoVM)
+                            BasicInformation(viewModel: viewModel.basicInfoVM)
                             Price(viewModel: viewModel.priceVM)
                         }
                     }

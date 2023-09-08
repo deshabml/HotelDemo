@@ -11,6 +11,7 @@ class BookingViewModel: ObservableObject {
 
     let name: String = "Бронирование"
     @Published var booking = Booking.clearBooking
+    let basicInfoVM = BasicInformationViewModel()
 
     init() {
         getData()
@@ -22,6 +23,10 @@ class BookingViewModel: ObservableObject {
                 let booking = try await NetworkServiceAA.shared.getData(dataset: Booking.clearBooking)
                 DispatchQueue.main.async {
                     self.booking = booking
+                    self.basicInfoVM.setup(rating: booking.horating,
+                                           ratingName: booking.ratingName,
+                                           hotelName: booking.hotelName,
+                                           hotelAdress: booking.hotelAdress)
                 }
             } catch {
                 print(error)

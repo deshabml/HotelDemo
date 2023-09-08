@@ -16,8 +16,15 @@ struct BookingView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 8) {
+                VStack {
+                    BasicInformation(viewModel: viewModel.basicInfoVM)
+                }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(12)
                 
             }
+            .padding(.vertical, 8)
             .background(Color("BackgraundGreyColor"))
         }
         .modifier(BackgroundElement(name: viewModel.name, completion: {

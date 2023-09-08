@@ -16,7 +16,7 @@ class HotelViewModel: ObservableObject {
                         Detailed(name: "Что не включено", imegeName: "CloseSquare")]
     let imagesCharacterVM = ImageCharacterViewModel()
     let tagListVM = TagListViewModel()
-    let BasicInfoVM = BasicInformationViewModel()
+    let basicInfoVM = BasicInformationViewModel()
     let priceVM = PriceViewModel()
 
     init() {
@@ -31,7 +31,7 @@ class HotelViewModel: ObservableObject {
                     self.hotel = hotel
                     self.imagesCharacterVM.getImages(urls: hotel.imageUrls)
                     self.tagListVM.setupTags(allTags: hotel.aboutTheHotel.peculiarities)
-                    self.BasicInfoVM.setup(rating: hotel.rating,
+                    self.basicInfoVM.setup(rating: hotel.rating,
                                            ratingName: hotel.ratingName,
                                            hotelName: hotel.name,
                                            hotelAdress: hotel.adress)
