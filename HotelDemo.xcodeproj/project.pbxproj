@@ -32,6 +32,8 @@
 		DDF819102AAB125C00F1CD2D /* String+widthOfString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8190F2AAB125C00F1CD2D /* String+widthOfString.swift */; };
 		DDF819122AAB2F7100F1CD2D /* TagListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819112AAB2F7100F1CD2D /* TagListViewModel.swift */; };
 		DDF819142AAB38AA00F1CD2D /* TagCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819132AAB38AA00F1CD2D /* TagCellViewModel.swift */; };
+		DDF819162AAB3B7400F1CD2D /* ImageCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819152AAB3B7400F1CD2D /* ImageCharacter.swift */; };
+		DDF819182AAB3C2200F1CD2D /* ImageCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819172AAB3C2200F1CD2D /* ImageCharacterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		DDF8190F2AAB125C00F1CD2D /* String+widthOfString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+widthOfString.swift"; sourceTree = "<group>"; };
 		DDF819112AAB2F7100F1CD2D /* TagListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListViewModel.swift; sourceTree = "<group>"; };
 		DDF819132AAB38AA00F1CD2D /* TagCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellViewModel.swift; sourceTree = "<group>"; };
+		DDF819152AAB3B7400F1CD2D /* ImageCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCharacter.swift; sourceTree = "<group>"; };
+		DDF819172AAB3C2200F1CD2D /* ImageCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCharacterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC6E0952AA9B30D00EF19ED /* ActivityIndicator.swift */,
+				DDF819152AAB3B7400F1CD2D /* ImageCharacter.swift */,
 				DDF8190B2AAB0EC200F1CD2D /* TagList.swift */,
 				DDF8190D2AAB118900F1CD2D /* TagCell.swift */,
 			);
@@ -195,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC6E0992AA9B36D00EF19ED /* ActivityIndicatorViewModel.swift */,
+				DDF819172AAB3C2200F1CD2D /* ImageCharacterViewModel.swift */,
 				DDF819112AAB2F7100F1CD2D /* TagListViewModel.swift */,
 				DDF819132AAB38AA00F1CD2D /* TagCellViewModel.swift */,
 			);
@@ -301,6 +307,7 @@
 			files = (
 				DDC6E0882AA86C4600EF19ED /* BookingView.swift in Sources */,
 				DDC6E0862AA86C2900EF19ED /* HotelRoomView.swift in Sources */,
+				DDF819162AAB3B7400F1CD2D /* ImageCharacter.swift in Sources */,
 				DDF819122AAB2F7100F1CD2D /* TagListViewModel.swift in Sources */,
 				DDC6E0A72AA9B9AB00EF19ED /* Hotel.swift in Sources */,
 				DDF8190E2AAB118900F1CD2D /* TagCell.swift in Sources */,
@@ -313,6 +320,7 @@
 				DDC6E0822AA869B900EF19ED /* HotelView.swift in Sources */,
 				DDC6E0962AA9B30D00EF19ED /* ActivityIndicator.swift in Sources */,
 				DDC6E0A42AA9B83600EF19ED /* URLManager.swift in Sources */,
+				DDF819182AAB3C2200F1CD2D /* ImageCharacterViewModel.swift in Sources */,
 				DDC6E0802AA8674000EF19ED /* MyPage.swift in Sources */,
 				DDC6E0942AA9AD4D00EF19ED /* View+buttonBack.swift in Sources */,
 				DD56D01D2AAA589500854F58 /* Detailed.swift in Sources */,
