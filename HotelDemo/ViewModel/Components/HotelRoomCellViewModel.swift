@@ -18,5 +18,18 @@ class HotelRoomCellViewModel: ObservableObject {
         imagesCharacterVM.getImages(urls: room.imageUrls)
         tagListVM.setupTags(allTags: room.peculiarities)
     }
+
+    func preisFormat() -> String {
+        let priseStringArray = Array(String(room.price)).map { String($0) }
+        var priseString = ""
+        for index in 0 ..< priseStringArray.count {
+            priseString += priseStringArray[index]
+            if (priseStringArray.count - 1 - index) % 3 == 0 {
+                priseString += " "
+            }
+        }
+        let itog = "от " + priseString  + " ₽"
+        return itog
+    }
     
 }

@@ -20,11 +20,12 @@ struct HotelRoomCell: View {
                         .weight(.medium))
                 TagList(viewModel: viewModel.tagListVM)
                 buttonMoreDetails()
-            }.padding()
+            }
             VStack(alignment: .leading, spacing: 8) {
-
-            }.padding()
+                basicInformation()
+            }
         }
+        .padding()
         .background(Color.white)
         .cornerRadius(12)
     }
@@ -55,6 +56,17 @@ extension HotelRoomCell {
             .padding(.vertical, 5)
             .background(Color(red: 0.05, green: 0.45, blue: 1).opacity(0.1))
             .cornerRadius(5)
+        }
+    }
+
+    private func basicInformation() -> some View {
+        HStack(alignment: .bottom, spacing: 8) {
+            Text(viewModel.preisFormat())
+                .font(Font.custom("SF Pro Display", size: 30)
+                    .weight(.semibold))
+            Text(viewModel.room.pricePer.lowercased())
+                .foregroundColor(.secondary)
+                .font(.custom("SF Pro Display", size: CGFloat(16)))
         }
     }
 
