@@ -11,17 +11,33 @@ struct HotelRoomView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = HotelRoomViewModel()
 
     var body: some View {
-        VStack {
-            Text("HotelRoom")
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 8) {
+                ForEach(viewModel.rooms.rooms, id: \.self) { room in
+                    VStack {
+                        HotelRoomCell(viewModel: HotelRoomCellViewModel(room: room))
+                            .environmentObject(coordinator)
+                    }
+                    .background(Color.white)
+                    .cornerRadius(12)
+                }
+            }
+            .background(Color("BackgraundGreyColor"))
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: buttonBack(complition: {
+        .navigationBarItems(leading: buttonBack(completion: {
             self.presentationMode.wrappedValue.dismiss()
         }))
-        .navigationTitle("HotelRoom")
+        .navigationTitle(viewModel.name)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            viewModel.setupName(name: coordinator.hotelName)
+        }
     }
     
 }

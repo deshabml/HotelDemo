@@ -12,6 +12,7 @@ final class Coordinator: ObservableObject {
     
     @Published var path = NavigationPath()
     @Published var page: MyPage = .hotel
+    var hotelName: String = ""
 
     func goHome() {
         path.removeLast(path.count)
@@ -19,6 +20,10 @@ final class Coordinator: ObservableObject {
 
     func goToHotelRoom() {
         path.append(MyPage.hotelRoom)
+    }
+
+    func goToBookingView() {
+        path.append(MyPage.booking)
     }
 
     @ViewBuilder
@@ -35,4 +40,12 @@ final class Coordinator: ObservableObject {
         }
     }
 
+}
+
+extension Coordinator {
+
+    func setupHotelName(hotelName: String) {
+        self.hotelName = hotelName
+    }
+    
 }

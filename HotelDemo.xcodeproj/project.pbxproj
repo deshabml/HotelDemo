@@ -36,6 +36,13 @@
 		DDF819182AAB3C2200F1CD2D /* ImageCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819172AAB3C2200F1CD2D /* ImageCharacterViewModel.swift */; };
 		DDF8191A2AAB444E00F1CD2D /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDF819192AAB444D00F1CD2D /* SF-Pro-Display-Semibold.otf */; };
 		DDF8191D2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDF8191C2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf */; };
+		DDF8191F2AAB4A6500F1CD2D /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8191E2AAB4A6500F1CD2D /* Room.swift */; };
+		DDF819212AAB4BA900F1CD2D /* HotelRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819202AAB4BA900F1CD2D /* HotelRoomViewModel.swift */; };
+		DDF819232AAB574E00F1CD2D /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819222AAB574E00F1CD2D /* Rooms.swift */; };
+		DDF819252AAB5B6700F1CD2D /* HotelRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819242AAB5B6600F1CD2D /* HotelRoomCell.swift */; };
+		DDF819272AAB5B7F00F1CD2D /* HotelRoomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819262AAB5B7F00F1CD2D /* HotelRoomCellViewModel.swift */; };
+		DDF8192B2AAB686200F1CD2D /* ButtonGoTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8192A2AAB686200F1CD2D /* ButtonGoTo.swift */; };
+		DDF8192D2AAB696E00F1CD2D /* ButtonGoToViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8192C2AAB696E00F1CD2D /* ButtonGoToViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +77,13 @@
 		DDF819172AAB3C2200F1CD2D /* ImageCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCharacterViewModel.swift; sourceTree = "<group>"; };
 		DDF819192AAB444D00F1CD2D /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		DDF8191C2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		DDF8191E2AAB4A6500F1CD2D /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		DDF819202AAB4BA900F1CD2D /* HotelRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelRoomViewModel.swift; sourceTree = "<group>"; };
+		DDF819222AAB574E00F1CD2D /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
+		DDF819242AAB5B6600F1CD2D /* HotelRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelRoomCell.swift; sourceTree = "<group>"; };
+		DDF819262AAB5B7F00F1CD2D /* HotelRoomCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelRoomCellViewModel.swift; sourceTree = "<group>"; };
+		DDF8192A2AAB686200F1CD2D /* ButtonGoTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGoTo.swift; sourceTree = "<group>"; };
+		DDF8192C2AAB696E00F1CD2D /* ButtonGoToViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGoToViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +194,8 @@
 				DDF819152AAB3B7400F1CD2D /* ImageCharacter.swift */,
 				DDF8190B2AAB0EC200F1CD2D /* TagList.swift */,
 				DDF8190D2AAB118900F1CD2D /* TagCell.swift */,
+				DDF819242AAB5B6600F1CD2D /* HotelRoomCell.swift */,
+				DDF8192A2AAB686200F1CD2D /* ButtonGoTo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -197,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC6E09B2AA9B40100EF19ED /* HotelViewModel.swift */,
+				DDF819202AAB4BA900F1CD2D /* HotelRoomViewModel.swift */,
 				DDC6E0982AA9B35B00EF19ED /* Components */,
 			);
 			path = ViewModel;
@@ -209,6 +226,8 @@
 				DDF819172AAB3C2200F1CD2D /* ImageCharacterViewModel.swift */,
 				DDF819112AAB2F7100F1CD2D /* TagListViewModel.swift */,
 				DDF819132AAB38AA00F1CD2D /* TagCellViewModel.swift */,
+				DDF819262AAB5B7F00F1CD2D /* HotelRoomCellViewModel.swift */,
+				DDF8192C2AAB696E00F1CD2D /* ButtonGoToViewModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -236,6 +255,8 @@
 			children = (
 				DDC6E0A62AA9B9AB00EF19ED /* Hotel.swift */,
 				DD56D01C2AAA589500854F58 /* Detailed.swift */,
+				DDF8191E2AAB4A6500F1CD2D /* Room.swift */,
+				DDF819222AAB574E00F1CD2D /* Rooms.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,6 +337,7 @@
 				DDC6E0882AA86C4600EF19ED /* BookingView.swift in Sources */,
 				DDC6E0862AA86C2900EF19ED /* HotelRoomView.swift in Sources */,
 				DDF819162AAB3B7400F1CD2D /* ImageCharacter.swift in Sources */,
+				DDF819252AAB5B6700F1CD2D /* HotelRoomCell.swift in Sources */,
 				DDF819122AAB2F7100F1CD2D /* TagListViewModel.swift in Sources */,
 				DDC6E0A72AA9B9AB00EF19ED /* Hotel.swift in Sources */,
 				DDF8190E2AAB118900F1CD2D /* TagCell.swift in Sources */,
@@ -323,20 +345,26 @@
 				DDC6E08A2AA86CAD00EF19ED /* PaidView.swift in Sources */,
 				DDC6E09A2AA9B36D00EF19ED /* ActivityIndicatorViewModel.swift in Sources */,
 				DDF8190C2AAB0EC200F1CD2D /* TagList.swift in Sources */,
+				DDF8192D2AAB696E00F1CD2D /* ButtonGoToViewModel.swift in Sources */,
 				DDF819142AAB38AA00F1CD2D /* TagCellViewModel.swift in Sources */,
+				DDF8192B2AAB686200F1CD2D /* ButtonGoTo.swift in Sources */,
 				DDC6E06C2AA851F400EF19ED /* HotelDemoApp.swift in Sources */,
 				DDC6E0822AA869B900EF19ED /* HotelView.swift in Sources */,
 				DDC6E0962AA9B30D00EF19ED /* ActivityIndicator.swift in Sources */,
+				DDF819232AAB574E00F1CD2D /* Rooms.swift in Sources */,
 				DDC6E0A42AA9B83600EF19ED /* URLManager.swift in Sources */,
 				DDF819182AAB3C2200F1CD2D /* ImageCharacterViewModel.swift in Sources */,
+				DDF819212AAB4BA900F1CD2D /* HotelRoomViewModel.swift in Sources */,
 				DDC6E0802AA8674000EF19ED /* MyPage.swift in Sources */,
 				DDC6E0942AA9AD4D00EF19ED /* View+buttonBack.swift in Sources */,
+				DDF819272AAB5B7F00F1CD2D /* HotelRoomCellViewModel.swift in Sources */,
 				DD56D01D2AAA589500854F58 /* Detailed.swift in Sources */,
 				DDF819102AAB125C00F1CD2D /* String+widthOfString.swift in Sources */,
 				DDC6E0A02AA9B6E200EF19ED /* NetworkError.swift in Sources */,
 				DDC6E07E2AA866C800EF19ED /* Coordinator.swift in Sources */,
 				DDC6E0A22AA9B79800EF19ED /* NetworkServiceAA.swift in Sources */,
 				DDC6E09C2AA9B40100EF19ED /* HotelViewModel.swift in Sources */,
+				DDF8191F2AAB4A6500F1CD2D /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

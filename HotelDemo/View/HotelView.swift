@@ -42,7 +42,10 @@ struct HotelView: View {
                 .background(Color.white)
                 .cornerRadius(12)
                 VStack {
-                    buttonGoToRoom()
+                    ButtonGoTo(viewModel: ButtonGoToViewModel(title: "К выбору номера",
+                                                              completion: {
+                        coordinator.setupHotelName(hotelName: viewModel.hotel.name)
+                        coordinator.goToHotelRoom()}))
                 }
                 .padding()
                 .background(Color.white)
@@ -146,28 +149,6 @@ extension HotelView {
         }
         .background(Color("ListBackgraundColor"))
         .cornerRadius(12)
-    }
-    
-    private func buttonGoToRoom() -> some View {
-        HStack {
-            Spacer()
-            Button {
-                coordinator.goToHotelRoom()
-            } label: {
-                HStack {
-                    Spacer()
-                    Text("К выбору номера")
-                        .foregroundColor(Color.white)
-                        .font(.custom("SF Pro Display",
-                                      size: CGFloat(16)))
-                    Spacer()
-                }
-                .padding()
-                .background(Color.blue)
-                .cornerRadius(16)
-            }
-            Spacer()
-        }
     }
     
 }
