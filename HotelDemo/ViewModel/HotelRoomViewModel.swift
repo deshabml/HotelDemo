@@ -9,6 +9,23 @@ import Foundation
 
 class HotelRoomViewModel: ObservableObject {
 
-    @Published var rooms: [Room] = []
+    @Published var rooms: Rooms = Rooms(rooms: [Room.clearRoom])
+
+    init() {
+        getData()
+    }
+
+    private func getData() {
+        Task {
+            do {
+                let rooms = try await NetworkServiceAA.shared.getData(dataset: Rooms(rooms: [Room.clearRoom]))
+                DispatchQueue.main.async {
+                    self.rooms = rooms
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
     
 }

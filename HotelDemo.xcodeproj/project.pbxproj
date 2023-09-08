@@ -38,6 +38,7 @@
 		DDF8191D2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDF8191C2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf */; };
 		DDF8191F2AAB4A6500F1CD2D /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8191E2AAB4A6500F1CD2D /* Room.swift */; };
 		DDF819212AAB4BA900F1CD2D /* HotelRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819202AAB4BA900F1CD2D /* HotelRoomViewModel.swift */; };
+		DDF819232AAB574E00F1CD2D /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819222AAB574E00F1CD2D /* Rooms.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		DDF8191C2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		DDF8191E2AAB4A6500F1CD2D /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		DDF819202AAB4BA900F1CD2D /* HotelRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelRoomViewModel.swift; sourceTree = "<group>"; };
+		DDF819222AAB574E00F1CD2D /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 				DDC6E0A62AA9B9AB00EF19ED /* Hotel.swift */,
 				DD56D01C2AAA589500854F58 /* Detailed.swift */,
 				DDF8191E2AAB4A6500F1CD2D /* Room.swift */,
+				DDF819222AAB574E00F1CD2D /* Rooms.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				DDC6E06C2AA851F400EF19ED /* HotelDemoApp.swift in Sources */,
 				DDC6E0822AA869B900EF19ED /* HotelView.swift in Sources */,
 				DDC6E0962AA9B30D00EF19ED /* ActivityIndicator.swift in Sources */,
+				DDF819232AAB574E00F1CD2D /* Rooms.swift in Sources */,
 				DDC6E0A42AA9B83600EF19ED /* URLManager.swift in Sources */,
 				DDF819182AAB3C2200F1CD2D /* ImageCharacterViewModel.swift in Sources */,
 				DDF819212AAB4BA900F1CD2D /* HotelRoomViewModel.swift in Sources */,
