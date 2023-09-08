@@ -14,8 +14,11 @@ struct BookingView: View {
     @StateObject var viewModel = BookingViewModel()
 
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 8) {
+                
+            }
+            .background(Color("BackgraundGreyColor"))
         }
         .modifier(BackgroundElement(name: viewModel.name, completion: {
             self.presentationMode.wrappedValue.dismiss()
