@@ -11,6 +11,7 @@ struct HotelRoomView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var coordinator: Coordinator
+    @StateObject private var viewModel = HotelRoomViewModel()
 
     var body: some View {
         VStack {
