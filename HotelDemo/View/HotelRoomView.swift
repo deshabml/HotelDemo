@@ -29,7 +29,7 @@ struct HotelRoomView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: buttonBack(complition: {
+        .navigationBarItems(leading: buttonBack(completion: {
             self.presentationMode.wrappedValue.dismiss()
         }))
         .navigationTitle("HotelRoom")

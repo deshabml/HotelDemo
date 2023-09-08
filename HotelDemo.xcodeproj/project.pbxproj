@@ -41,6 +41,8 @@
 		DDF819232AAB574E00F1CD2D /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819222AAB574E00F1CD2D /* Rooms.swift */; };
 		DDF819252AAB5B6700F1CD2D /* HotelRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819242AAB5B6600F1CD2D /* HotelRoomCell.swift */; };
 		DDF819272AAB5B7F00F1CD2D /* HotelRoomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819262AAB5B7F00F1CD2D /* HotelRoomCellViewModel.swift */; };
+		DDF8192B2AAB686200F1CD2D /* ButtonGoTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8192A2AAB686200F1CD2D /* ButtonGoTo.swift */; };
+		DDF8192D2AAB696E00F1CD2D /* ButtonGoToViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8192C2AAB696E00F1CD2D /* ButtonGoToViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		DDF819222AAB574E00F1CD2D /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 		DDF819242AAB5B6600F1CD2D /* HotelRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelRoomCell.swift; sourceTree = "<group>"; };
 		DDF819262AAB5B7F00F1CD2D /* HotelRoomCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelRoomCellViewModel.swift; sourceTree = "<group>"; };
+		DDF8192A2AAB686200F1CD2D /* ButtonGoTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGoTo.swift; sourceTree = "<group>"; };
+		DDF8192C2AAB696E00F1CD2D /* ButtonGoToViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGoToViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 				DDF8190B2AAB0EC200F1CD2D /* TagList.swift */,
 				DDF8190D2AAB118900F1CD2D /* TagCell.swift */,
 				DDF819242AAB5B6600F1CD2D /* HotelRoomCell.swift */,
+				DDF8192A2AAB686200F1CD2D /* ButtonGoTo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				DDF819112AAB2F7100F1CD2D /* TagListViewModel.swift */,
 				DDF819132AAB38AA00F1CD2D /* TagCellViewModel.swift */,
 				DDF819262AAB5B7F00F1CD2D /* HotelRoomCellViewModel.swift */,
+				DDF8192C2AAB696E00F1CD2D /* ButtonGoToViewModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -339,7 +345,9 @@
 				DDC6E08A2AA86CAD00EF19ED /* PaidView.swift in Sources */,
 				DDC6E09A2AA9B36D00EF19ED /* ActivityIndicatorViewModel.swift in Sources */,
 				DDF8190C2AAB0EC200F1CD2D /* TagList.swift in Sources */,
+				DDF8192D2AAB696E00F1CD2D /* ButtonGoToViewModel.swift in Sources */,
 				DDF819142AAB38AA00F1CD2D /* TagCellViewModel.swift in Sources */,
+				DDF8192B2AAB686200F1CD2D /* ButtonGoTo.swift in Sources */,
 				DDC6E06C2AA851F400EF19ED /* HotelDemoApp.swift in Sources */,
 				DDC6E0822AA869B900EF19ED /* HotelView.swift in Sources */,
 				DDC6E0962AA9B30D00EF19ED /* ActivityIndicator.swift in Sources */,

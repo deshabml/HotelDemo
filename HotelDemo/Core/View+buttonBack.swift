@@ -10,9 +10,9 @@ import SwiftUI
 extension View {
 
     @ViewBuilder
-    func buttonBack(complition: @escaping ()->()) -> some View {
+    func buttonBack(completion: @escaping ()->()) -> some View {
         Button {
-            complition()
+            completion()
         } label: {
             Image(systemName: "chevron.backward")
                 .foregroundColor(.black)
