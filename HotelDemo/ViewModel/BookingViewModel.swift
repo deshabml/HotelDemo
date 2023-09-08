@@ -11,6 +11,7 @@ class BookingViewModel: ObservableObject {
 
     let name: String = "Бронирование"
     @Published var booking = Booking.clearBooking
+    @Published var phone: String = ""
     let basicInfoVM = BasicInformationViewModel()
 
     init() {
@@ -32,6 +33,10 @@ class BookingViewModel: ObservableObject {
                 print(error)
             }
         }
+    }
+
+    func dates() -> String {
+        booking.tourDateStart + " - " + booking.tourDateStop
     }
     
 }

@@ -22,9 +22,23 @@ struct BookingView: View {
                 .padding()
                 .background(Color.white)
                 .cornerRadius(12)
-                VStack(spacing: 16) {
-                    bookingDataCell(title: "Вылет из",
-                                    value: viewModel.booking.departure)
+                bookingData()
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("Информация о покупателе")
+                        .font(Font.custom("SF Pro Display", size: 22)
+                            .weight(.medium))
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Номер телефона")
+                        HStack(spacing: 4) {
+                            Text("+7")
+                                .foregroundColor(!viewModel.phone.isEmpty ? Color.black : .secondary)
+                            PhoneTextField(text: $viewModel.phone, placeholder: "(***) ***-**-**")
+                        }
+                    }
+                    .padding(.vertical, 10)
+                    .padding(.horizontal)
+                    .background(Color("BackgraundGreyColor"))
+                    .cornerRadius(10)
                 }
                 .padding()
                 .background(Color.white)
@@ -66,4 +80,27 @@ extension BookingView {
             Spacer()
         }
     }
+
+    private func bookingData() -> some View {
+        VStack(spacing: 16) {
+            bookingDataCell(title: "Вылет из",
+                            value: viewModel.booking.departure)
+            bookingDataCell(title: "Страна, город",
+                            value: viewModel.booking.arrivalCountry)
+            bookingDataCell(title: "Даты",
+                            value: viewModel.dates())
+            bookingDataCell(title: "Кол-во ночей",
+                            value: "\(viewModel.booking.numberOfNights)")
+            bookingDataCell(title: "Отель",
+                            value: viewModel.booking.hotelName)
+            bookingDataCell(title: "Номер",
+                            value: viewModel.booking.room)
+            bookingDataCell(title: "Питание",
+                            value: viewModel.booking.nutrition)
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(12)
+    }
+
 }
