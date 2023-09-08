@@ -30,7 +30,7 @@ struct HotelView: View {
                         Text("Об отеле")
                             .font(.custom("SF Pro Display",
                                           size: CGFloat(22)))
-                        TagList(allTags: viewModel.hotel.aboutTheHotel.peculiarities)
+                        TagList(viewModel: viewModel.tagListVM)
                         Text(viewModel.hotel.aboutTheHotel.description)
                             .font(.custom("SF Pro Display",
                                           size: CGFloat(16)))

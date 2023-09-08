@@ -15,6 +15,7 @@ class HotelViewModel: ObservableObject {
     let detailedInfo = [Detailed(name: "Удобства", imegeName: "Happy"),
                         Detailed(name: "Что включено", imegeName: "TickSquare"),
                         Detailed(name: "Что не включено", imegeName: "CloseSquare")]
+    var tagListVM = TagListViewModel()
 
     init() {
         getData()
@@ -27,6 +28,7 @@ class HotelViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.hotel = hotel
                     self.getImages()
+                    self.tagListVM.setupTags(allTags: hotel.aboutTheHotel.peculiarities)
                 }
             } catch {
                 print(error)
@@ -78,5 +80,5 @@ class HotelViewModel: ObservableObject {
             }
         }
     }
-    
+
 }

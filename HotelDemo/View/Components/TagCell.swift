@@ -9,10 +9,10 @@ import SwiftUI
 
 struct TagCell: View {
 
-    let title: String
+    @StateObject var viewModel: TagCellViewModel
 
     var body: some View {
-        Text(title)
+        Text(viewModel.title)
             .font(Font.custom("SF Pro Display", size: 16)
                 .weight(.medium))
             .foregroundColor(.secondary)
@@ -26,7 +26,7 @@ struct TagCell: View {
 struct TagCell_Previews: PreviewProvider {
 
     static var previews: some View {
-        TagCell(title: "Teg")
+        TagCell(viewModel: TagCellViewModel(title: "Teg"))
     }
 
 }
