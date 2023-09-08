@@ -14,9 +14,20 @@ struct HotelRoomView: View {
     @StateObject private var viewModel = HotelRoomViewModel()
 
     var body: some View {
-        VStack {
-            Text("HotelRoom")
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 8) {
+                ForEach(viewModel.rooms.rooms, id: \.self) { room in
+                    VStack {
+                        HotelRoomCell(viewModel: HotelRoomCellViewModel(room: room))
+                    }
+                    .background(Color.white)
+                    .cornerRadius(12)
+                }
+            }
+            .background(Color("BackgraundGreyColor"))
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: buttonBack(complition: {
             self.presentationMode.wrappedValue.dismiss()
