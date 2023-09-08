@@ -8,13 +8,28 @@
 import SwiftUI
 
 struct BookingView: View {
+
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = BookingViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        }
+        .modifier(BackgroundElement(name: viewModel.name, completion: {
+            self.presentationMode.wrappedValue.dismiss()
+        }))
     }
 }
 
 struct BookingView_Previews: PreviewProvider {
+
     static var previews: some View {
-        BookingView()
+        NavigationStack {
+            BookingView()
+                .environmentObject(Coordinator())
+        }
     }
+
 }

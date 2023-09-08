@@ -27,14 +27,9 @@ struct HotelRoomView: View {
             }
             .background(Color("BackgraundGreyColor"))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: buttonBack(completion: {
+        .modifier(BackgroundElement(name: viewModel.name, completion: {
             self.presentationMode.wrappedValue.dismiss()
         }))
-        .navigationTitle(viewModel.name)
-        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             viewModel.setupName(name: coordinator.hotelName)
         }
