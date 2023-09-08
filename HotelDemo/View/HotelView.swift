@@ -12,12 +12,6 @@ struct HotelView: View {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject private var viewModel = HotelViewModel()
     @State private var currentIndex = 0
-//    private var columns: [GridItem] = [
-//        GridItem(.adaptive(minimum: 100, maximum: 200)),
-////        GridItem(.adaptive(minimum: 100, maximum: 300)),
-////        GridItem(.adaptive(minimum: 100, maximum: 300)),
-//        GridItem(.adaptive(minimum: 100, maximum: 200))
-//    ]
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -36,91 +30,39 @@ struct HotelView: View {
                         Text("Об отеле")
                             .font(.custom("SF Pro Display",
                                           size: CGFloat(22)))
-//                        LazyVGrid(
-//                                        columns: columns
-////                                        alignment: .center,
-////                                        spacing: 16,
-////                                        pinnedViews: [.sectionHeaders, .sectionFooters]
-//                                    ) {
-//                        Grid(tracks: [.fr(1), .pt(150), .fr(2)]) {
-//                            Text("Ehffff")
-//                                .gridSpan(column: 2)
-//                            Text("Ehffff")
-//                                .gridSpan(row: 2)
-//                            Text("Ehffff")
-//                            Text("Ehffff")
-//                            Text("Ehffff")
-//                                .gridSpan(column: 2, row: 3)
-//                            Text("Ehffff")
-//                            Text("Ehffff")
-//                                .gridSpan(row: 2)
-//                        }
-//                        List {
-//                        GeometryReader { proxy in
-//                            var views: [any View] = []
-//                            for i in 0 ..< viewModel.hotel.aboutTheHotel.peculiarities.count {
-//                                if viewModel.hotel.aboutTheHotel.peculiarities[i].rect > proxy.frame.width {
-//                                    HStack {
-//                                        viewModel.hotel.aboutTheHotel.peculiarities[i]
-//                                        viewModel.hotel.aboutTheHotel.peculiarities[i + 1]
-//
-//                                    }
-//                                } else {
-//                                    HStack {
-//                                        viewModel.hotel.aboutTheHotel.peculiarities[i]
-//                                    }
-//                                }
-//
-//                            }
-//                            ForEach(0 ..< viewModel.hotel.aboutTheHotel.peculiarities.count, id: \.self) { index in
-//                                Text(viewModel.hotel.aboutTheHotel.peculiarities[index])
-////                                    .fixedSize(horizontal: true, vertical: false)
-//                                    .font(.custom("SF Pro Display",
-//                                                  size: CGFloat(16)))
-//                                    .foregroundColor(.secondary)
-////                                    .padding(.horizontal, 10)
-////                                    .padding(.vertical, 5)
-////                                    .background(Color("BackgraundGreyColor"))
-////                                    .gridCellColumns(4)
-//                                //                                    .frame(height: 20)
-//                            }
-//                        }
-////                        .frame(maxWidth: 300)
-////                        }
-//
-////                        .frame(maxWidth: .infinity)
-////                        .frame(height: 100)
-////                            ForEach(0 ..< viewModel.hotel.aboutTheHotel.peculiarities.count, id: \.self) { index in
-////                                Text(viewModel.hotel.aboutTheHotel.peculiarities[index])
-////                                    .font(.custom("SF Pro Display",
-////                                                  size: CGFloat(16)))
-////                                    .foregroundColor(.secondary)
-////                                    .padding(.horizontal, 10)
-////                                    .padding(.vertical, 5)
-////                                    .background(Color("BackgraundGreyColor"))
-//////                                    .frame(height: 20)
-////                            }
-//
-////                        }
-////                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        ///
-
+                        TagList(allTags: viewModel.hotel.aboutTheHotel.peculiarities)
                         Text(viewModel.hotel.aboutTheHotel.description)
                             .font(.custom("SF Pro Display",
                                           size: CGFloat(16)))
                         ditailedList()
                     }
                     .padding()
-                    Text("Наш отель мы так всем рады)")
-                    Button {
-                        coordinator.goToHotelRoom()
-                    } label: {
-                        Text("Hotel Room")
-                    }
-                    Spacer()
                 }
                 .background(Color.white)
                 .cornerRadius(12)
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button {
+                            coordinator.goToHotelRoom()
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("К выбору номера")
+                                    .foregroundColor(Color.white)
+                                    .font(.custom("SF Pro Display",
+                                                  size: CGFloat(16)))
+                                Spacer()
+                            }
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(16)
+                        }
+                        Spacer()
+                    }
+                }
+                .padding()
+                .background(Color.white)
             }
             .background(Color("BackgraundGreyColor"))
         }
@@ -200,8 +142,8 @@ extension HotelView {
                     .frame(width: 15, height: 15)
                 Text("\(rating)" + " " + ratingName)
             }
-            .font(.custom("SF Pro Display",
-                          size: CGFloat(16)))
+            .font(Font.custom("SF Pro Display", size: 16)
+                .weight(.medium))
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
             .foregroundColor(Color("OrangeColor"))
@@ -225,9 +167,8 @@ extension HotelView {
             }
             HStack(alignment: .bottom) {
                 Text(viewModel.preisFormat())
-                    .font(.custom("SF Pro Display",
-                                  size: CGFloat(30)))
-                    .bold()
+                    .font(Font.custom("SF Pro Display", size: 30)
+                        .weight(.semibold))
                 Text(viewModel.hotel.priceForIt.lowercased())
                     .foregroundColor(.secondary)
                     .font(.custom("SF Pro Display", size: CGFloat(16)))
