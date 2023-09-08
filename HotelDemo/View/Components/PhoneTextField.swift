@@ -15,6 +15,7 @@ struct PhoneTextField: View {
 
     var body: some View {
         TextField(placeholder, text: $text)
+            .font(Font.custom("SF Pro Display", size: 16))
             .onChange(of: text, perform: { oldValue in
                 text = format(with: "(XXX) XXX-XX-XX", phone: oldValue)
             })

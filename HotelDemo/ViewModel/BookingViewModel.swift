@@ -12,6 +12,7 @@ class BookingViewModel: ObservableObject {
     let name: String = "Бронирование"
     @Published var booking = Booking.clearBooking
     @Published var phone: String = ""
+    @Published var mail: String = ""
     let basicInfoVM = BasicInformationViewModel()
 
     init() {

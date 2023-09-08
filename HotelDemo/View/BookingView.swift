@@ -27,18 +27,13 @@ struct BookingView: View {
                     Text("Информация о покупателе")
                         .font(Font.custom("SF Pro Display", size: 22)
                             .weight(.medium))
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text("Номер телефона")
-                        HStack(spacing: 4) {
-                            Text("+7")
-                                .foregroundColor(!viewModel.phone.isEmpty ? Color.black : .secondary)
-                            PhoneTextField(text: $viewModel.phone, placeholder: "(***) ***-**-**")
-                        }
+                    VStack(spacing: 8) {
+                        phoneTextField()
+                        mailTextField()
+                        Text("Эти данные никому не передаются. После оплаты мы вышлим чек на указанный вами номер и почту")
+                            .font(Font.custom("SF Pro Display", size: 14))
+                            .foregroundColor(.secondary)
                     }
-                    .padding(.vertical, 10)
-                    .padding(.horizontal)
-                    .background(Color("BackgraundGreyColor"))
-                    .cornerRadius(10)
                 }
                 .padding()
                 .background(Color.white)
@@ -101,6 +96,38 @@ extension BookingView {
         .padding()
         .background(Color.white)
         .cornerRadius(12)
+    }
+
+    private func phoneTextField() -> some View {
+        VStack(spacing: 8) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("Номер телефона")
+                HStack(spacing: 4) {
+                    Text("+7")
+                        .font(Font.custom("SF Pro Display", size: 16))
+                        .foregroundColor(!viewModel.phone.isEmpty ? Color.black : .secondary)
+                    PhoneTextField(text: $viewModel.phone, placeholder: "(***) ***-**-**")
+                }
+            }
+            .padding(.vertical, 10)
+            .padding(.horizontal)
+            .background(Color("BackgraundGreyColor"))
+            .cornerRadius(10)
+        }
+    }
+
+    private func mailTextField() -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Почта")
+            HStack(spacing: 4) {
+                TextField("mail", text: $viewModel.mail)
+                    .font(Font.custom("SF Pro Display", size: 16))
+            }
+        }
+        .padding(.vertical, 10)
+        .padding(.horizontal)
+        .background(Color("BackgraundGreyColor"))
+        .cornerRadius(10)
     }
 
 }
