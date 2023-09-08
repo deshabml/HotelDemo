@@ -11,10 +11,12 @@ class HotelRoomCellViewModel: ObservableObject {
 
     let room: Room
     let imagesCharacterVM = ImageCharacterViewModel()
+    let tagListVM = TagListViewModel()
 
     init(room: Room) {
         self.room = room
         imagesCharacterVM.getImages(urls: room.imageUrls)
+        tagListVM.setupTags(allTags: room.peculiarities)
     }
     
 }
