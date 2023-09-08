@@ -14,7 +14,7 @@ struct BasicInformation: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             rating(rating: viewModel.rating, ratingName: viewModel.ratingName)
-            Text(viewModel.hotelAdress)
+            Text(viewModel.hotelName)
                 .font(Font.custom("SF Pro Display", size: 22)
                     .weight(.medium))
             Button {

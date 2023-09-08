@@ -16,6 +16,8 @@ class HotelViewModel: ObservableObject {
                         Detailed(name: "Что не включено", imegeName: "CloseSquare")]
     let imagesCharacterVM = ImageCharacterViewModel()
     let tagListVM = TagListViewModel()
+    let BasicInfoVM = BasicInformationViewModel()
+    let priceVM = PriceViewModel()
 
     init() {
         getData()
@@ -29,24 +31,18 @@ class HotelViewModel: ObservableObject {
                     self.hotel = hotel
                     self.imagesCharacterVM.getImages(urls: hotel.imageUrls)
                     self.tagListVM.setupTags(allTags: hotel.aboutTheHotel.peculiarities)
+                    self.BasicInfoVM.setup(rating: hotel.rating,
+                                           ratingName: hotel.ratingName,
+                                           hotelName: hotel.name,
+                                           hotelAdress: hotel.adress)
+                    self.priceVM.setup(price: hotel.minimalPrice,
+                                       priceForIt: hotel.priceForIt,
+                                       isInitialPrice: true)
                 }
             } catch {
                 print(error)
             }
         }
-    }
-
-    func preisFormat() -> String {
-        let priseStringArray = Array(String(hotel.minimalPrice)).map { String($0) }
-        var priseString = ""
-        for index in 0 ..< priseStringArray.count {
-            priseString += priseStringArray[index]
-            if (priseStringArray.count - 1 - index) % 3 == 0 {
-                priseString += " "
-            }
-        }
-        let itog = "от " + priseString  + " ₽"
-        return itog
     }
 
 }
