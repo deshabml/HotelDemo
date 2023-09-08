@@ -10,9 +10,14 @@ import Foundation
 class HotelRoomViewModel: ObservableObject {
 
     @Published var rooms: Rooms = Rooms(rooms: [Room.clearRoom])
+    var name: String = ""
 
     init() {
         getData()
+    }
+
+    func setupName(name: String) {
+        self.name = name
     }
 
     private func getData() {

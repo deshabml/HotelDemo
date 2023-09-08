@@ -28,7 +28,7 @@ class HotelRoomCellViewModel: ObservableObject {
                 priseString += " "
             }
         }
-        let itog = "от " + priseString  + " ₽"
+        let itog = " " + priseString  + " ₽"
         return itog
     }
     

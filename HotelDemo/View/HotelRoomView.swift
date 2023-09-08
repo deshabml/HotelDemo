@@ -11,7 +11,7 @@ struct HotelRoomView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var coordinator: Coordinator
-    @StateObject private var viewModel = HotelRoomViewModel()
+    @StateObject var viewModel = HotelRoomViewModel()
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -19,6 +19,7 @@ struct HotelRoomView: View {
                 ForEach(viewModel.rooms.rooms, id: \.self) { room in
                     VStack {
                         HotelRoomCell(viewModel: HotelRoomCellViewModel(room: room))
+                            .environmentObject(coordinator)
                     }
                     .background(Color.white)
                     .cornerRadius(12)
@@ -32,8 +33,11 @@ struct HotelRoomView: View {
         .navigationBarItems(leading: buttonBack(completion: {
             self.presentationMode.wrappedValue.dismiss()
         }))
-        .navigationTitle("HotelRoom")
+        .navigationTitle(viewModel.name)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            viewModel.setupName(name: coordinator.hotelName)
+        }
     }
     
 }

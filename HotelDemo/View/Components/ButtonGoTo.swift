@@ -17,17 +17,14 @@ struct ButtonGoTo: View {
             Button {
                 viewModel.completion()
             } label: {
-                HStack {
-                    Spacer()
-                    Text(viewModel.title)
-                        .foregroundColor(Color.white)
-                        .font(.custom("SF Pro Display",
-                                      size: CGFloat(16)))
-                    Spacer()
-                }
-                .padding()
-                .background(Color.blue)
-                .cornerRadius(16)
+                Text(viewModel.title)
+                    .foregroundColor(Color.white)
+                    .font(.custom("SF Pro Display",
+                                  size: CGFloat(16)))
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical)
+                    .background(Color.blue)
+                    .cornerRadius(16)
             }
             Spacer()
         }
