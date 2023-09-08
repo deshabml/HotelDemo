@@ -34,6 +34,8 @@
 		DDF819142AAB38AA00F1CD2D /* TagCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819132AAB38AA00F1CD2D /* TagCellViewModel.swift */; };
 		DDF819162AAB3B7400F1CD2D /* ImageCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819152AAB3B7400F1CD2D /* ImageCharacter.swift */; };
 		DDF819182AAB3C2200F1CD2D /* ImageCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF819172AAB3C2200F1CD2D /* ImageCharacterViewModel.swift */; };
+		DDF8191A2AAB444E00F1CD2D /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDF819192AAB444D00F1CD2D /* SF-Pro-Display-Semibold.otf */; };
+		DDF8191D2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDF8191C2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		DDF819132AAB38AA00F1CD2D /* TagCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellViewModel.swift; sourceTree = "<group>"; };
 		DDF819152AAB3B7400F1CD2D /* ImageCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCharacter.swift; sourceTree = "<group>"; };
 		DDF819172AAB3C2200F1CD2D /* ImageCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCharacterViewModel.swift; sourceTree = "<group>"; };
+		DDF819192AAB444D00F1CD2D /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		DDF8191C2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 		DD56D0172AAA1ACE00854F58 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				DDF8191C2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf */,
+				DDF819192AAB444D00F1CD2D /* SF-Pro-Display-Semibold.otf */,
 				DD56D0182AAA1AE100854F58 /* SF-Pro-Display-Regular.otf */,
 			);
 			path = Font;
@@ -292,9 +298,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF8191A2AAB444E00F1CD2D /* SF-Pro-Display-Semibold.otf in Resources */,
 				DDC6E0732AA851F600EF19ED /* Preview Assets.xcassets in Resources */,
 				DD56D0192AAA1AE100854F58 /* SF-Pro-Display-Regular.otf in Resources */,
 				DDC6E0702AA851F600EF19ED /* Assets.xcassets in Resources */,
+				DDF8191D2AAB454C00F1CD2D /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

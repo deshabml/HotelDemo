@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct HotelView: View {
-
+    
     @EnvironmentObject var coordinator: Coordinator
     @StateObject private var viewModel = HotelViewModel()
-
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack (spacing: 16) {
+            VStack (spacing: 8) {
                 VStack {
                     VStack(spacing: 16) {
                         ImageCharacter(viewModel: viewModel.imagesCharacterVM)
@@ -27,12 +27,14 @@ struct HotelView: View {
                 VStack {
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Об отеле")
-                            .font(.custom("SF Pro Display",
-                                          size: CGFloat(22)))
-                        TagList(viewModel: viewModel.tagListVM)
-                        Text(viewModel.hotel.aboutTheHotel.description)
-                            .font(.custom("SF Pro Display",
-                                          size: CGFloat(16)))
+                            .font(Font.custom("SF Pro Display", size: 22)
+                                .weight(.medium))
+                        VStack(alignment: .leading, spacing: 12) {
+                            TagList(viewModel: viewModel.tagListVM)
+                            Text(viewModel.hotel.aboutTheHotel.description)
+                                .font(.custom("SF Pro Display",
+                                              size: CGFloat(16)))
+                        }
                         ditailedList()
                     }
                     .padding()
@@ -40,25 +42,7 @@ struct HotelView: View {
                 .background(Color.white)
                 .cornerRadius(12)
                 VStack {
-                    HStack {
-                        Spacer()
-                        Button {
-                            coordinator.goToHotelRoom()
-                        } label: {
-                            HStack {
-                                Spacer()
-                                Text("К выбору номера")
-                                    .foregroundColor(Color.white)
-                                    .font(.custom("SF Pro Display",
-                                                  size: CGFloat(16)))
-                                Spacer()
-                            }
-                                .padding()
-                                .background(Color.blue)
-                                .cornerRadius(16)
-                        }
-                        Spacer()
-                    }
+                    buttonGoToRoom()
                 }
                 .padding()
                 .background(Color.white)
@@ -70,22 +54,22 @@ struct HotelView: View {
         .navigationTitle("Отель")
         .navigationBarTitleDisplayMode(.inline)
     }
-
+    
 }
 
 struct HotelView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
         NavigationStack {
             HotelView()
                 .environmentObject(Coordinator())
         }
     }
-
+    
 }
 
 extension HotelView {
-
+    
     private func rating(rating: Int, ratingName: String) -> some View {
         HStack {
             HStack(spacing: 4) {
@@ -105,20 +89,22 @@ extension HotelView {
             Spacer()
         }
     }
-
+    
     private func basicInformation() -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            rating(rating: viewModel.hotel.rating, ratingName: viewModel.hotel.ratingName)
-            Text(viewModel.hotel.name)
-                .font(.custom("SF Pro Display",
-                              size: CGFloat(22)))
-            Button {
-            } label: {
-                Text(viewModel.hotel.adress)
-                    .font(.custom("SF Pro Display",
-                                  size: CGFloat(14)))
+        VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 8) {
+                rating(rating: viewModel.hotel.rating, ratingName: viewModel.hotel.ratingName)
+                Text(viewModel.hotel.name)
+                    .font(Font.custom("SF Pro Display", size: 22)
+                        .weight(.medium))
+                Button {
+                } label: {
+                    Text(viewModel.hotel.adress)
+                        .font(Font.custom("SF Pro Display", size: 14)
+                            .weight(.medium))
+                }
             }
-            HStack(alignment: .bottom) {
+            HStack(alignment: .bottom, spacing: 8) {
                 Text(viewModel.preisFormat())
                     .font(Font.custom("SF Pro Display", size: 30)
                         .weight(.semibold))
@@ -128,7 +114,7 @@ extension HotelView {
             }
         }
     }
-
+    
     private func ditailedList() -> some View {
         VStack {
             List {
@@ -161,5 +147,27 @@ extension HotelView {
         .background(Color("ListBackgraundColor"))
         .cornerRadius(12)
     }
-
+    
+    private func buttonGoToRoom() -> some View {
+        HStack {
+            Spacer()
+            Button {
+                coordinator.goToHotelRoom()
+            } label: {
+                HStack {
+                    Spacer()
+                    Text("К выбору номера")
+                        .foregroundColor(Color.white)
+                        .font(.custom("SF Pro Display",
+                                      size: CGFloat(16)))
+                    Spacer()
+                }
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(16)
+            }
+            Spacer()
+        }
+    }
+    
 }

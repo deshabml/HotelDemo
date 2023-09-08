@@ -60,10 +60,10 @@ struct ImageCharacter: View {
 
 }
 
-//struct ImageCharacter_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        ImageCharacter()
-//    }
-//
-//}
+struct ImageCharacter_Previews: PreviewProvider {
+
+    static var previews: some View {
+        ImageCharacter(viewModel: ImageCharacterViewModel())
+    }
+
+}
