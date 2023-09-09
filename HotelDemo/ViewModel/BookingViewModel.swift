@@ -101,12 +101,12 @@ final class BookingViewModel: ObservableObject {
             let isPassportNumber = checkTouristCell(touristCell: tourist.passportNumberTFVM)
             let isCitizenship = checkTouristCell(touristCell: tourist.citizenshipTFVM)
             let isValidityPeriodOfPassportp = checkTouristCell(touristCell: tourist.validityPeriodOfPassportTFVM)
-            if isName { itog = false }
-            if isSurname { itog = false }
-            if isDateOfBirth { itog = false }
-            if isCitizenship { itog = false }
-            if isPassportNumber { itog = false }
-            if isValidityPeriodOfPassportp { itog = false }
+            if !isName { itog = false }
+            if !isSurname { itog = false }
+            if !isDateOfBirth { itog = false }
+            if !isCitizenship { itog = false }
+            if !isPassportNumber { itog = false }
+            if !isValidityPeriodOfPassportp { itog = false }
         }
         return itog
     }
