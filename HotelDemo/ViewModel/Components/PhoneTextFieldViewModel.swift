@@ -24,7 +24,7 @@ final class PhoneTextFieldViewModel: ObservableObject {
     }
     @Published var isValidPhone = true
 
-    var placeholder: String = "(***) ***-**-**"
+    var placeholder: String = "Номер телефона"
 
     func setupEditingPhone(_ editingPhone: Bool) {
         self.editingPhone = editingPhone

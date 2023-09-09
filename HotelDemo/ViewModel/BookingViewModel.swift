@@ -27,6 +27,8 @@ final class BookingViewModel: ObservableObject {
         }
     }
     @Published var isValidMail = true
+    @Published var tourists = [Tourist.clearTourist]
+    let nameTourists = ["Первый", "Второй", "Третий", "Четвертый", "Пятый", "Шестой", "Седьмой", "Восьмой", "Девятый", "Десятый", "Одиннадцатый", "Двенадцатый", "Тринадцатый", "Четырнадцатый", "Пятнадцатый", "Шестнадцатый", "Семнадцатый", "Восемнадцатый", "Девятнадцатый", "Двадцатый"]
 
     init() {
         getData()
@@ -56,5 +58,5 @@ final class BookingViewModel: ObservableObject {
     func setupEditingMail(_ editingMail: Bool) {
         self.editingMail = editingMail
     }
-    
+
 }

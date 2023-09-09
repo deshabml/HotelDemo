@@ -16,5 +16,14 @@ struct Tourist: Identifiable, Hashable {
     var citizenship: String
     var passportNumber: String
     var validityPeriodOfPassport: String
+
+    static var clearTourist: Tourist {
+        Tourist(name: "",
+                surname: "",
+                dateOfBirth: "",
+                citizenship: "",
+                passportNumber: "",
+                validityPeriodOfPassport: "")
+    }
     
 }

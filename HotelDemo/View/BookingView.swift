@@ -23,22 +23,8 @@ struct BookingView: View {
                 .background(Color.white)
                 .cornerRadius(12)
                 bookingData()
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Информация о покупателе")
-                        .font(Font.custom("SF Pro Display", size: 22)
-                            .weight(.medium))
-                    VStack(spacing: 8) {
-                        phoneTextField()
-                        mailTextField()
-                        Text("Эти данные никому не передаются. После оплаты мы вышлим чек на указанный вами номер и почту")
-                            .font(Font.custom("SF Pro Display", size: 14))
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(12)
-                
+                userInfo()
+                touristsInfo()
             }
             .padding(.vertical, 8)
             .background(Color("BackgraundGreyColor"))
@@ -119,6 +105,63 @@ extension BookingView {
         .padding(.horizontal)
         .background(viewModel.isValidMail ? Color("BackgraundGreyColor") : Color("ErrorValidColor"))
         .cornerRadius(10)
+    }
+
+    private func userInfo() -> some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text("Информация о покупателе")
+                .font(Font.custom("SF Pro Display", size: 22)
+                    .weight(.medium))
+            VStack(spacing: 8) {
+                phoneTextField()
+                mailTextField()
+                Text("Эти данные никому не передаются. После оплаты мы вышлим чек на указанный вами номер и почту")
+                    .font(Font.custom("SF Pro Display", size: 14))
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(12)
+    }
+
+    private func touristsInfo() -> some View {
+        VStack {
+            ForEach(0 ..< viewModel.tourists.count, id: \.self) { index in
+                VStack(alignment: .leading, spacing: 20) {
+                    Text(viewModel.nameTourists[index] + " турист")
+                        .font(Font.custom("SF Pro Display", size: 22)
+                            .weight(.medium))
+                    VStack(spacing: 8) {
+
+                    }
+                }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(12)
+            }
+            VStack {
+                HStack {
+                    Text("Добавить туриста")
+                    Spacer()
+                    Button {
+                        viewModel.tourists.append(Tourist.clearTourist)
+                    } label: {
+                        Image(systemName: "plus")
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 12)
+                            .foregroundColor(Color.white)
+                            .background(Color.blue)
+                            .cornerRadius(6)
+                    }
+                }
+                .font(Font.custom("SF Pro Display", size: 22)
+                    .weight(.medium))
+            }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(12)
+        }
     }
 
 }
