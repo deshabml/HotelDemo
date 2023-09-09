@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HotelRoomViewModel: ObservableObject {
+final class HotelRoomViewModel: ObservableObject {
 
     @Published var rooms: Rooms = Rooms(rooms: [Room.clearRoom])
     var name: String = ""

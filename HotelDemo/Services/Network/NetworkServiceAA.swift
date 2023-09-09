@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class NetworkServiceAA {
+final class NetworkServiceAA {
 
     static let shared = NetworkServiceAA()
     
@@ -37,6 +37,7 @@ class NetworkServiceAA {
         switch dataset {
             case _ as Hotel: arrayUrl = .hotel
             case _ as Rooms: arrayUrl = .hotelRoom
+            case _ as Booking: arrayUrl = .booking
             default: throw NetworkError.badUrl
         }
         guard let url = URLManager.shared.createUrl(endpoint: arrayUrl) else { throw NetworkError.badUrl }

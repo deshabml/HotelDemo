@@ -22,9 +22,10 @@ struct HotelRoomCell: View {
                 TagList(viewModel: viewModel.tagListVM)
                 buttonMoreDetails()
             }
-            basicInformation()
-            ButtonGoTo(viewModel: ButtonGoToViewModel(title: "Выбрать номер",
-                                                      completion: {coordinator.goToBookingView()}))
+            Price(viewModel: viewModel.priceVM)
+            ButtonGoTo(viewModel: ButtonGoToViewModel(title: "Выбрать номер")) {
+                coordinator.goToBookingView()
+            }
         }
         .padding()
         .background(Color.white)
@@ -57,17 +58,6 @@ extension HotelRoomCell {
             .padding(.vertical, 5)
             .background(Color(red: 0.05, green: 0.45, blue: 1).opacity(0.1))
             .cornerRadius(5)
-        }
-    }
-
-    private func basicInformation() -> some View {
-        HStack(alignment: .bottom, spacing: 8) {
-            Text(viewModel.preisFormat())
-                .font(Font.custom("SF Pro Display", size: 30)
-                    .weight(.semibold))
-            Text(viewModel.room.pricePer.lowercased())
-                .foregroundColor(.secondary)
-                .font(.custom("SF Pro Display", size: CGFloat(16)))
         }
     }
 

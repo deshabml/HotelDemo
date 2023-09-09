@@ -10,12 +10,13 @@ import SwiftUI
 struct ButtonGoTo: View {
 
     @StateObject var viewModel: ButtonGoToViewModel
+    var completion: ()->()
 
     var body: some View {
         HStack {
             Spacer()
             Button {
-                viewModel.completion()
+                completion()
             } label: {
                 Text(viewModel.title)
                     .foregroundColor(Color.white)
@@ -35,7 +36,7 @@ struct ButtonGoTo: View {
 struct ButtonGoTo_Previews: PreviewProvider {
 
     static var previews: some View {
-        ButtonGoTo(viewModel: ButtonGoToViewModel(title: "Title", completion: { }))
+        ButtonGoTo(viewModel: ButtonGoToViewModel(title: "Title")) { }
     }
 
 }

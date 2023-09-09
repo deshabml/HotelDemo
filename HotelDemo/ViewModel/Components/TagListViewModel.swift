@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TagListViewModel: ObservableObject {
+final class TagListViewModel: ObservableObject {
 
     @Published var allTags: [String] = []
 

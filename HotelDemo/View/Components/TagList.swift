@@ -12,7 +12,6 @@ struct TagList: View {
     @StateObject var viewModel: TagListViewModel
 
     var body: some View {
-
         VStack(alignment: .leading) {
             ForEach(0 ..< viewModel.rowCounts(UIScreen.main.bounds.size.width).count, id: \.self) { rowIndex in
                 HStack {
@@ -21,7 +20,6 @@ struct TagList: View {
                     }
                 }
             }
-            Spacer()
         }
     }
 
