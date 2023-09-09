@@ -10,4 +10,4 @@
 
 <div align="center">
 
-  ![xx](https://github.com/deshabml/RickAndMorty/blob/main/GIFImage.gif?w=450)
+  ![xx](https://github.com/deshabml/HotelDemo/blob/main/GIFImage.gif?w=450)
