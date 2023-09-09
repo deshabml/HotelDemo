@@ -101,19 +101,7 @@ extension BookingView {
 
     private func phoneTextField() -> some View {
         VStack(spacing: 8) {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Номер телефона")
-                HStack(spacing: 4) {
-                    Text("+7")
-                        .font(Font.custom("SF Pro Display", size: 16))
-                        .foregroundColor(!viewModel.phoneTextFieldVM.text.isEmpty ? Color.black : .secondary)
-                    PhoneTextField(viewModel: viewModel.phoneTextFieldVM)
-                }
-            }
-            .padding(.vertical, 10)
-            .padding(.horizontal)
-            .background(Color("BackgraundGreyColor"))
-            .cornerRadius(10)
+            PhoneTextField(viewModel: viewModel.phoneTextFieldVM)
         }
     }
 
