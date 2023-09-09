@@ -143,8 +143,8 @@ extension BookingView {
                         Text("Добавить туриста")
                         Spacer()
                         Button {
-                            viewModel.tourists.append(Tourist.clearTourist)
                             viewModel.toutistsCells.append(TouristCellViewModel(index: viewModel.tourists.count))
+                            viewModel.tourists.append(Tourist.clearTourist)
                         } label: {
                             Image(systemName: "plus")
                                 .padding(.horizontal, 10)
