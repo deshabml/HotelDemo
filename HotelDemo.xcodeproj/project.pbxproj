@@ -24,6 +24,8 @@
 		DD79F0FF2AAC3EDE003B03F5 /* Tourist.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79F0FE2AAC3EDE003B03F5 /* Tourist.swift */; };
 		DD79F1012AAC46BD003B03F5 /* BookingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79F1002AAC46BD003B03F5 /* BookingTextField.swift */; };
 		DD79F1032AAC555C003B03F5 /* BookingTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79F1022AAC555C003B03F5 /* BookingTextFieldViewModel.swift */; };
+		DD79F1052AAC69D0003B03F5 /* TouristCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79F1042AAC69D0003B03F5 /* TouristCell.swift */; };
+		DD79F1072AAC6A2B003B03F5 /* TouristCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79F1062AAC6A2B003B03F5 /* TouristCellViewModel.swift */; };
 		DDC6E06C2AA851F400EF19ED /* HotelDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6E06B2AA851F400EF19ED /* HotelDemoApp.swift */; };
 		DDC6E0702AA851F600EF19ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC6E06F2AA851F600EF19ED /* Assets.xcassets */; };
 		DDC6E0732AA851F600EF19ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC6E0722AA851F600EF19ED /* Preview Assets.xcassets */; };
@@ -78,6 +80,8 @@
 		DD79F0FE2AAC3EDE003B03F5 /* Tourist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tourist.swift; sourceTree = "<group>"; };
 		DD79F1002AAC46BD003B03F5 /* BookingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTextField.swift; sourceTree = "<group>"; };
 		DD79F1022AAC555C003B03F5 /* BookingTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTextFieldViewModel.swift; sourceTree = "<group>"; };
+		DD79F1042AAC69D0003B03F5 /* TouristCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCell.swift; sourceTree = "<group>"; };
+		DD79F1062AAC6A2B003B03F5 /* TouristCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCellViewModel.swift; sourceTree = "<group>"; };
 		DDC6E0682AA851F400EF19ED /* HotelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC6E06B2AA851F400EF19ED /* HotelDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDemoApp.swift; sourceTree = "<group>"; };
 		DDC6E06F2AA851F600EF19ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 				DD79F0ED2AAB8093003B03F5 /* Price.swift */,
 				DD79F0F32AABAA2B003B03F5 /* PhoneTextField.swift */,
 				DD79F1002AAC46BD003B03F5 /* BookingTextField.swift */,
+				DD79F1042AAC69D0003B03F5 /* TouristCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				DD79F0EF2AAB80BE003B03F5 /* PriceViewModel.swift */,
 				DD79F0F52AABC622003B03F5 /* PhoneTextFieldViewModel.swift */,
 				DD79F1022AAC555C003B03F5 /* BookingTextFieldViewModel.swift */,
+				DD79F1062AAC6A2B003B03F5 /* TouristCellViewModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -411,7 +417,9 @@
 				DD79F0FF2AAC3EDE003B03F5 /* Tourist.swift in Sources */,
 				DDC6E08A2AA86CAD00EF19ED /* PaidView.swift in Sources */,
 				DDC6E09A2AA9B36D00EF19ED /* ActivityIndicatorViewModel.swift in Sources */,
+				DD79F1072AAC6A2B003B03F5 /* TouristCellViewModel.swift in Sources */,
 				DD79F0E82AAB78B1003B03F5 /* BookingViewModel.swift in Sources */,
+				DD79F1052AAC69D0003B03F5 /* TouristCell.swift in Sources */,
 				DDF8190C2AAB0EC200F1CD2D /* TagList.swift in Sources */,
 				DDF8192D2AAB696E00F1CD2D /* ButtonGoToViewModel.swift in Sources */,
 				DD79F0F62AABC622003B03F5 /* PhoneTextFieldViewModel.swift in Sources */,

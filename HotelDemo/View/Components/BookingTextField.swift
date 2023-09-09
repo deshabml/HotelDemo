@@ -10,7 +10,7 @@ import SwiftUI
 struct BookingTextField: View {
 
     @StateObject var viewModel: BookingTextFieldViewModel
-    var completion: (()->())?
+    var completion: ((Bool)->())?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -21,7 +21,7 @@ struct BookingTextField: View {
             }
             HStack(spacing: 4) {
                 TextField(viewModel.placeholder, text: $viewModel.text) { (editing) in
-                    completion?()
+                    completion?(editing)
                 }
                     .font(Font.custom("SF Pro Display", size: 16))
             }

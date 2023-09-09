@@ -12,23 +12,21 @@ final class BookingViewModel: ObservableObject {
     let name: String = "Бронирование"
     @Published var booking = Booking.clearBooking
     let phoneTextFieldVM = PhoneTextFieldViewModel()
-    @Published var mail: String = ""
+    @Published var mailTFVM = BookingTextFieldViewModel(placeholder: "Почта")
     let basicInfoVM = BasicInformationViewModel()
     @Published var editingMail = false {
         didSet {
             if !editingMail {
                 do {
-                    try ValidationMail.shared.checkMail(mail: mail)
-                    isValidMail = true
+                    try ValidationMail.shared.checkMail(mail: mailTFVM.text)
+                    mailTFVM.isValid = true
                 } catch {
-                    isValidMail = false
+                    mailTFVM.isValid = false
                 }
             }
         }
     }
-    @Published var isValidMail = true
     @Published var tourists = [Tourist.clearTourist]
-    let nameTourists = ["Первый", "Второй", "Третий", "Четвертый", "Пятый", "Шестой", "Седьмой", "Восьмой", "Девятый", "Десятый", "Одиннадцатый", "Двенадцатый", "Тринадцатый", "Четырнадцатый", "Пятнадцатый", "Шестнадцатый", "Семнадцатый", "Восемнадцатый", "Девятнадцатый", "Двадцатый"]
 
     init() {
         getData()

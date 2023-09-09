@@ -32,8 +32,8 @@ struct BookingView: View {
         .modifier(BackgroundElement(name: viewModel.name, completion: {
             self.presentationMode.wrappedValue.dismiss()
         }))
-        .animation(.easeInOut, value: viewModel.isValidMail)
     }
+    
 }
 
 struct BookingView_Previews: PreviewProvider {
@@ -92,19 +92,9 @@ extension BookingView {
     }
 
     private func mailTextField() -> some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("Почта")
-            HStack(spacing: 4) {
-                TextField("mail", text: $viewModel.mail) { (editing) in
-                    viewModel.setupEditingMail(editing)
-                }
-                    .font(Font.custom("SF Pro Display", size: 16))
-            }
+        BookingTextField(viewModel: viewModel.mailTFVM) { (editing) in
+            viewModel.setupEditingMail(editing)
         }
-        .padding(.vertical, 10)
-        .padding(.horizontal)
-        .background(viewModel.isValidMail ? Color("BackgraundGreyColor") : Color("ErrorValidColor"))
-        .cornerRadius(10)
     }
 
     private func userInfo() -> some View {
@@ -128,39 +118,31 @@ extension BookingView {
     private func touristsInfo() -> some View {
         VStack {
             ForEach(0 ..< viewModel.tourists.count, id: \.self) { index in
-                VStack(alignment: .leading, spacing: 20) {
-                    Text(viewModel.nameTourists[index] + " турист")
-                        .font(Font.custom("SF Pro Display", size: 22)
-                            .weight(.medium))
-                    VStack(spacing: 8) {
-
+                TouristCell(viewModel: TouristCellViewModel(index: index))
+            }
+            if viewModel.tourists.count < 20 {
+                VStack {
+                    HStack {
+                        Text("Добавить туриста")
+                        Spacer()
+                        Button {
+                            viewModel.tourists.append(Tourist.clearTourist)
+                        } label: {
+                            Image(systemName: "plus")
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 12)
+                                .foregroundColor(Color.white)
+                                .background(Color.blue)
+                                .cornerRadius(6)
+                        }
                     }
+                    .font(Font.custom("SF Pro Display", size: 22)
+                        .weight(.medium))
                 }
                 .padding()
                 .background(Color.white)
                 .cornerRadius(12)
             }
-            VStack {
-                HStack {
-                    Text("Добавить туриста")
-                    Spacer()
-                    Button {
-                        viewModel.tourists.append(Tourist.clearTourist)
-                    } label: {
-                        Image(systemName: "plus")
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 12)
-                            .foregroundColor(Color.white)
-                            .background(Color.blue)
-                            .cornerRadius(6)
-                    }
-                }
-                .font(Font.custom("SF Pro Display", size: 22)
-                    .weight(.medium))
-            }
-            .padding()
-            .background(Color.white)
-            .cornerRadius(12)
         }
     }
 

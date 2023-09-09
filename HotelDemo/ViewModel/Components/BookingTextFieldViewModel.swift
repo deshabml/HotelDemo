@@ -11,7 +11,7 @@ final class BookingTextFieldViewModel: ObservableObject {
 
     @Published var text: String = ""
     let placeholder: String
-    var isValid = true
+    @Published var isValid = true
     
     init(placeholder: String) {
         self.placeholder = placeholder
