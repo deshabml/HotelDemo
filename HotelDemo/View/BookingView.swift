@@ -25,6 +25,7 @@ struct BookingView: View {
                 bookingData()
                 userInfo()
                 touristsInfo()
+                finalPrice()
             }
             .padding(.vertical, 8)
             .background(Color("BackgraundGreyColor"))
@@ -145,5 +146,35 @@ extension BookingView {
             }
         }
     }
+
+    private func finalPrice() -> some View {
+        VStack(spacing: 16) {
+            finalPriceDataCell(title: "Тур",
+                            value: viewModel.priceFormat(price: viewModel.booking.tourPrice))
+            finalPriceDataCell(title: "Топливный сбор",
+                            value: viewModel.priceFormat(price: viewModel.booking.fuelCharge))
+            finalPriceDataCell(title: "Сервисный сбор",
+                            value: viewModel.priceFormat(price: viewModel.booking.serviceCharge))
+            finalPriceDataCell(title: "К оплате",
+                               value: viewModel.priceFormat(price: viewModel.itogPrice()))
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(12)
+    }
+
+    private func finalPriceDataCell(title: String, value: String) -> some View {
+        HStack() {
+            HStack() {
+                Text(title)
+                    .font(Font.custom("SF Pro Display", size: 16))
+                    .foregroundColor(.secondary)
+            }
+            Spacer()
+            Text(value)
+                .foregroundColor(title == "К оплате" ? Color.blue : Color.black)
+        }
+    }
+
 
 }

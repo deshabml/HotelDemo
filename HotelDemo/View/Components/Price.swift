@@ -13,7 +13,7 @@ struct Price: View {
 
     var body: some View {
         HStack(alignment: .bottom, spacing: 8) {
-            Text(viewModel.preisFormat())
+            Text(viewModel.priceFormat())
                 .font(Font.custom("SF Pro Display", size: 30)
                     .weight(.semibold))
             Text(viewModel.priceForIt.lowercased())

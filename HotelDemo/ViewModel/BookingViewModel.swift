@@ -57,4 +57,21 @@ final class BookingViewModel: ObservableObject {
         self.editingMail = editingMail
     }
 
+    func priceFormat(price: Int) -> String {
+        let priseStringArray = Array(String(price)).map { String($0) }
+        var priseString = ""
+        for index in 0 ..< priseStringArray.count {
+            priseString += priseStringArray[index]
+            if (priseStringArray.count - 1 - index) % 3 == 0 {
+                priseString += " "
+            }
+        }
+        let itog = priseString  + " ₽"
+        return itog
+    }
+
+    func itogPrice() -> Int {
+        booking.tourPrice + booking.fuelCharge + booking.serviceCharge
+    }
+
 }

@@ -29,7 +29,7 @@ final class PriceViewModel: ObservableObject {
 
 
 
-    func preisFormat() -> String {
+    func priceFormat() -> String {
         let priseStringArray = Array(String(price)).map { String($0) }
         var priseString = ""
         for index in 0 ..< priseStringArray.count {
