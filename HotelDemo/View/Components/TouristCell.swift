@@ -42,12 +42,12 @@ struct TouristCell: View {
                 .weight(.medium))
             if viewModel.isShow {
                 VStack(spacing: 8) {
-                    BookingTextField(viewModel: BookingTextFieldViewModel(placeholder: "Имя"))
-                    BookingTextField(viewModel: BookingTextFieldViewModel(placeholder: "Фамилия"))
-                    BookingTextField(viewModel: BookingTextFieldViewModel(placeholder: "Дата рождения"))
-                    BookingTextField(viewModel: BookingTextFieldViewModel(placeholder: "Гражданство"))
-                    BookingTextField(viewModel: BookingTextFieldViewModel(placeholder: "Номер загранпаспорта"))
-                    BookingTextField(viewModel: BookingTextFieldViewModel(placeholder: "Срок действия загранпаспорта"))
+                    BookingTextField(viewModel: viewModel.nameTFVM)
+                    BookingTextField(viewModel: viewModel.surnameTFVM)
+                    BookingTextField(viewModel: viewModel.dateOfBirthTFVM)
+                    BookingTextField(viewModel: viewModel.citizenshipTFVM)
+                    BookingTextField(viewModel: viewModel.passportNumberTFVM)
+                    BookingTextField(viewModel: viewModel.validityPeriodOfPassportTFVM)
                 }
             }
         }

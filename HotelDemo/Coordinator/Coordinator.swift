@@ -26,6 +26,10 @@ final class Coordinator: ObservableObject {
         path.append(MyPage.booking)
     }
 
+    func goToPaidView() {
+        path.append(MyPage.paid)
+    }
+
     @ViewBuilder
     func getPage(_ page: MyPage) -> some View {
         switch page {

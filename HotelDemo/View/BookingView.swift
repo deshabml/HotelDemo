@@ -26,20 +26,29 @@ struct BookingView: View {
                 userInfo()
                 touristsInfo()
                 finalPrice()
-                VStack {
-                    ButtonGoTo(viewModel: viewModel.buttonGoToVM) {
-                        coordinator.goToBookingView()
-                    }
-                }
-                .padding()
-                .background(Color.white)
             }
             .padding(.vertical, 8)
             .background(Color("BackgraundGreyColor"))
+            VStack {
+                ButtonGoTo(viewModel: viewModel.buttonGoToVM) {
+                    if viewModel.checkTouristsInfo() {
+                        coordinator.goToPaidView()
+                    } else {
+                        viewModel.isShowErrorAlert.toggle()
+                        viewModel.deployAllTourists()
+                    }
+                }
+            }
+            .padding()
+            .background(Color.white)
+
         }
         .modifier(BackgroundElement(name: viewModel.name, completion: {
             self.presentationMode.wrappedValue.dismiss()
         }))
+        .alert("Все поля должны быть заполнены!", isPresented: $viewModel.isShowErrorAlert) {
+            Button("ОК") { }
+        }
     }
     
 }
@@ -95,7 +104,7 @@ extension BookingView {
 
     private func phoneTextField() -> some View {
         VStack(spacing: 8) {
-            PhoneTextField(viewModel: viewModel.phoneTextFieldVM)
+            PhoneTextField(viewModel: viewModel.phoneTFVM)
         }
     }
 
@@ -126,7 +135,7 @@ extension BookingView {
     private func touristsInfo() -> some View {
         VStack {
             ForEach(0 ..< viewModel.tourists.count, id: \.self) { index in
-                TouristCell(viewModel: TouristCellViewModel(index: index))
+                TouristCell(viewModel: viewModel.toutistsCells[index])
             }
             if viewModel.tourists.count < 20 {
                 VStack {
@@ -135,6 +144,7 @@ extension BookingView {
                         Spacer()
                         Button {
                             viewModel.tourists.append(Tourist.clearTourist)
+                            viewModel.toutistsCells.append(TouristCellViewModel(index: viewModel.tourists.count))
                         } label: {
                             Image(systemName: "plus")
                                 .padding(.horizontal, 10)
