@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ButtonGoToViewModel: ObservableObject {
+final class ButtonGoToViewModel: ObservableObject {
 
     let title: String
     var completion: ()->()

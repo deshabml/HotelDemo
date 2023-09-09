@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageCharacterViewModel: ObservableObject {
+final class ImageCharacterViewModel: ObservableObject {
 
     @Published var images: [UIImage]?
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BasicInformationViewModel: ObservableObject {
+final class BasicInformationViewModel: ObservableObject {
 
     @Published var rating: Int = 0
     @Published var ratingName: String = ""

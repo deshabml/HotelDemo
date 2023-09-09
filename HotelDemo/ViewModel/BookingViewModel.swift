@@ -7,13 +7,20 @@
 
 import Foundation
 
-class BookingViewModel: ObservableObject {
+final class BookingViewModel: ObservableObject {
 
     let name: String = "Бронирование"
     @Published var booking = Booking.clearBooking
-    @Published var phone: String = ""
+    let phoneTextFieldVM = PhoneTextFieldViewModel()
     @Published var mail: String = ""
     let basicInfoVM = BasicInformationViewModel()
+    @Published var editingMail = false {
+        didSet {
+            if !editingMail {
+                print("Valid Error")
+            }
+        }
+    }
 
     init() {
         getData()
@@ -38,6 +45,10 @@ class BookingViewModel: ObservableObject {
 
     func dates() -> String {
         booking.tourDateStart + " - " + booking.tourDateStop
+    }
+
+    func setupEditingMail(_ editingMail: Bool) {
+        self.editingMail = editingMail
     }
     
 }

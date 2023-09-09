@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HotelRoomCellViewModel: ObservableObject {
+final class HotelRoomCellViewModel: ObservableObject {
 
     let room: Room
     let imagesCharacterVM = ImageCharacterViewModel()

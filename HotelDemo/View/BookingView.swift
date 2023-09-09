@@ -105,8 +105,8 @@ extension BookingView {
                 HStack(spacing: 4) {
                     Text("+7")
                         .font(Font.custom("SF Pro Display", size: 16))
-                        .foregroundColor(!viewModel.phone.isEmpty ? Color.black : .secondary)
-                    PhoneTextField(text: $viewModel.phone, placeholder: "(***) ***-**-**")
+                        .foregroundColor(!viewModel.phoneTextFieldVM.text.isEmpty ? Color.black : .secondary)
+                    PhoneTextField(viewModel: viewModel.phoneTextFieldVM)
                 }
             }
             .padding(.vertical, 10)
@@ -120,7 +120,9 @@ extension BookingView {
         VStack(alignment: .leading, spacing: 0) {
             Text("Почта")
             HStack(spacing: 4) {
-                TextField("mail", text: $viewModel.mail)
+                TextField("mail", text: $viewModel.mail) { (editing) in
+                    viewModel.setupEditingMail(editing)
+                }
                     .font(Font.custom("SF Pro Display", size: 16))
             }
         }

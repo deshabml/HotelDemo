@@ -9,15 +9,13 @@ import SwiftUI
 
 struct PhoneTextField: View {
 
-    @Binding var text: String
-
-    var placeholder: String = ""
+    @StateObject var viewModel: PhoneTextFieldViewModel
 
     var body: some View {
-        TextField(placeholder, text: $text)
+        TextField(viewModel.placeholder, text: $viewModel.text)
             .font(Font.custom("SF Pro Display", size: 16))
-            .onChange(of: text, perform: { oldValue in
-                text = format(with: "(XXX) XXX-XX-XX", phone: oldValue)
+            .onChange(of: viewModel.text, perform: { oldValue in
+                viewModel.text = format(with: "(XXX) XXX-XX-XX", phone: oldValue)
             })
     }
 
@@ -27,7 +25,7 @@ struct PhoneTextField_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            PhoneTextField(text: .constant(""), placeholder: "+7 (***) ***-**-**")
+            PhoneTextField(viewModel: PhoneTextFieldViewModel())
         }
         .background(Color.yellow)
     }

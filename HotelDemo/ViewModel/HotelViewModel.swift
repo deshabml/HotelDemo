@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class HotelViewModel: ObservableObject {
+final class HotelViewModel: ObservableObject {
 
     @Published var hotel = Hotel.clearHotel
     let detailedInfo = [Detailed(name: "Удобства", imegeName: "Happy"),

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TagCellViewModel: ObservableObject {
+final class TagCellViewModel: ObservableObject {
 
     let title: String
 

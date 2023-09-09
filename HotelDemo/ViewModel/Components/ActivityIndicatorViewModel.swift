@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ActivityIndicatorViewModel: ObservableObject {
+final class ActivityIndicatorViewModel: ObservableObject {
 
     @Published var currentIndex: Int = 0
 

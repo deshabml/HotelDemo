@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class NetworkServiceAA {
+final class NetworkServiceAA {
 
     static let shared = NetworkServiceAA()
     
