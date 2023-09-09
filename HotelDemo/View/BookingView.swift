@@ -46,6 +46,7 @@ struct BookingView: View {
         .modifier(BackgroundElement(name: viewModel.name, completion: {
             self.presentationMode.wrappedValue.dismiss()
         }))
+        .animation(.easeInOut, value: viewModel.isValidMail)
     }
 }
 
@@ -128,7 +129,7 @@ extension BookingView {
         }
         .padding(.vertical, 10)
         .padding(.horizontal)
-        .background(Color("BackgraundGreyColor"))
+        .background(viewModel.isValidMail ? Color("BackgraundGreyColor") : Color("ErrorValidColor"))
         .cornerRadius(10)
     }
 

@@ -17,10 +17,16 @@ final class BookingViewModel: ObservableObject {
     @Published var editingMail = false {
         didSet {
             if !editingMail {
-                print("Valid Error")
+                do {
+                    try ValidationMail.shared.checkMail(mail: mail)
+                    isValidMail = true
+                } catch {
+                    isValidMail = false
+                }
             }
         }
     }
+    @Published var isValidMail = true
 
     init() {
         getData()

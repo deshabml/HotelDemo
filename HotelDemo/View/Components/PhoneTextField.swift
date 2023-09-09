@@ -12,7 +12,9 @@ struct PhoneTextField: View {
     @StateObject var viewModel: PhoneTextFieldViewModel
 
     var body: some View {
-        TextField(viewModel.placeholder, text: $viewModel.text)
+        TextField(viewModel.placeholder, text: $viewModel.text) { (editing) in
+            viewModel.setupEditingPhone(editing)
+        }
             .font(Font.custom("SF Pro Display", size: 16))
             .onChange(of: viewModel.text, perform: { oldValue in
                 viewModel.text = format(with: "(XXX) XXX-XX-XX", phone: oldValue)
