@@ -23,8 +23,9 @@ struct HotelRoomCell: View {
                 buttonMoreDetails()
             }
             Price(viewModel: viewModel.priceVM)
-            ButtonGoTo(viewModel: ButtonGoToViewModel(title: "Выбрать номер",
-                                                      completion: {coordinator.goToBookingView()}))
+            ButtonGoTo(viewModel: ButtonGoToViewModel(title: "Выбрать номер")) {
+                coordinator.goToBookingView()
+            }
         }
         .padding()
         .background(Color.white)

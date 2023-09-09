@@ -45,10 +45,10 @@ struct HotelView: View {
                 .background(Color.white)
                 .cornerRadius(12)
                 VStack {
-                    ButtonGoTo(viewModel: ButtonGoToViewModel(title: "К выбору номера",
-                                                              completion: {
+                    ButtonGoTo(viewModel: ButtonGoToViewModel(title: "К выбору номера")) {
                         coordinator.setupHotelName(hotelName: viewModel.hotel.name)
-                        coordinator.goToHotelRoom()}))
+                        coordinator.goToHotelRoom()
+                    }
                 }
                 .padding()
                 .background(Color.white)

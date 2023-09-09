@@ -26,6 +26,13 @@ struct BookingView: View {
                 userInfo()
                 touristsInfo()
                 finalPrice()
+                VStack {
+                    ButtonGoTo(viewModel: viewModel.buttonGoToVM) {
+                        coordinator.goToBookingView()
+                    }
+                }
+                .padding()
+                .background(Color.white)
             }
             .padding(.vertical, 8)
             .background(Color("BackgraundGreyColor"))
@@ -156,7 +163,7 @@ extension BookingView {
             finalPriceDataCell(title: "Сервисный сбор",
                             value: viewModel.priceFormat(price: viewModel.booking.serviceCharge))
             finalPriceDataCell(title: "К оплате",
-                               value: viewModel.priceFormat(price: viewModel.itogPrice()))
+                               value: viewModel.itogPrice())
         }
         .padding()
         .background(Color.white)

@@ -9,11 +9,9 @@ import Foundation
 
 final class ButtonGoToViewModel: ObservableObject {
 
-    let title: String
-    var completion: ()->()
+    @Published var title: String
 
-    init(title: String, completion: @escaping ()->()) {
-        self.completion = completion
+    init(title: String) {
         self.title = title
     }
 

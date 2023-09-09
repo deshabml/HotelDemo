@@ -27,6 +27,7 @@ final class BookingViewModel: ObservableObject {
         }
     }
     @Published var tourists = [Tourist.clearTourist]
+    let buttonGoToVM = ButtonGoToViewModel(title: "Оплатить ")
 
     init() {
         getData()
@@ -42,6 +43,7 @@ final class BookingViewModel: ObservableObject {
                                            ratingName: booking.ratingName,
                                            hotelName: booking.hotelName,
                                            hotelAdress: booking.hotelAdress)
+                    self.buttonGoToVM.title = "Оплатить " + self.itogPrice()
                 }
             } catch {
                 print(error)
@@ -70,8 +72,9 @@ final class BookingViewModel: ObservableObject {
         return itog
     }
 
-    func itogPrice() -> Int {
-        booking.tourPrice + booking.fuelCharge + booking.serviceCharge
+    func itogPrice() -> String {
+        let itog = booking.tourPrice + booking.fuelCharge + booking.serviceCharge
+        return(priceFormat(price: itog))
     }
 
 }
