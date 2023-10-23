@@ -84,7 +84,6 @@ extension HotelView {
                         HStack(alignment: .center, spacing: 12) {
                             VStack(spacing: 10) {
                                 Image(detail.imegeName)
-                                    .frame(width: 24, height: 24)
                                 if detail != viewModel.detailedInfo.last {
                                     Image(systemName: "minus")
                                         .frame(width: 24, height: 1)
