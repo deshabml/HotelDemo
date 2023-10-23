@@ -8,42 +8,44 @@
 import SwiftUI
 
 struct HotelView: View {
-    
+
     @EnvironmentObject var coordinator: Coordinator
     @StateObject private var viewModel = HotelViewModel()
-    
+
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack (spacing: 8) {
-                VStack {
-                    VStack(spacing: 16) {
-                        ImageCharacter(viewModel: viewModel.imagesCharacterVM)
+            VStack(spacing: 12) {
+                VStack (spacing: 8) {
+                    VStack {
+                        VStack(spacing: 16) {
+                            ImageCharacter(viewModel: viewModel.imagesCharacterVM)
+                            VStack(alignment: .leading, spacing: 16) {
+                                BasicInformation(viewModel: viewModel.basicInfoVM)
+                                Price(viewModel: viewModel.priceVM)
+                            }
+                        }
+                        .padding()
+                    }
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    VStack {
                         VStack(alignment: .leading, spacing: 16) {
-                            BasicInformation(viewModel: viewModel.basicInfoVM)
-                            Price(viewModel: viewModel.priceVM)
+                            Text("Об отеле")
+                                .font(Font.custom("SF Pro Display", size: 22)
+                                    .weight(.medium))
+                            VStack(alignment: .leading, spacing: 12) {
+                                TagList(viewModel: viewModel.tagListVM)
+                                Text(viewModel.hotel.aboutTheHotel.description)
+                                    .font(.custom("SF Pro Display",
+                                                  size: CGFloat(16)))
+                            }
+                            ditailedList()
                         }
+                        .padding()
                     }
-                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(12)
                 }
-                .background(Color.white)
-                .cornerRadius(12)
-                VStack {
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("Об отеле")
-                            .font(Font.custom("SF Pro Display", size: 22)
-                                .weight(.medium))
-                        VStack(alignment: .leading, spacing: 12) {
-                            TagList(viewModel: viewModel.tagListVM)
-                            Text(viewModel.hotel.aboutTheHotel.description)
-                                .font(.custom("SF Pro Display",
-                                              size: CGFloat(16)))
-                        }
-                        ditailedList()
-                    }
-                    .padding()
-                }
-                .background(Color.white)
-                .cornerRadius(12)
                 VStack {
                     ButtonGoTo(viewModel: ButtonGoToViewModel(title: "К выбору номера")) {
                         coordinator.setupHotelName(hotelName: viewModel.hotel.name)
@@ -60,18 +62,18 @@ struct HotelView: View {
         .navigationTitle("Отель")
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+
 }
 
 struct HotelView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         NavigationStack {
             HotelView()
                 .environmentObject(Coordinator())
         }
     }
-    
+
 }
 
 extension HotelView {
@@ -118,5 +120,5 @@ extension HotelView {
         .background(Color("ListBackgraundColor"))
         .cornerRadius(15)
     }
-    
+
 }

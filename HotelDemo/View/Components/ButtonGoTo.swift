@@ -21,7 +21,8 @@ struct ButtonGoTo: View {
                 Text(viewModel.title)
                     .foregroundColor(Color.white)
                     .font(.custom("SF Pro Display",
-                                  size: CGFloat(16)))
+                                  size: CGFloat(16))
+                        .weight(.medium))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical)
                     .background(Color.blue)

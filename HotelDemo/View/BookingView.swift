@@ -14,33 +14,35 @@ struct BookingView: View {
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 8) {
+            VStack(spacing: 2) {
+                VStack(spacing: 8) {
+                    VStack {
+                        BasicInformation(viewModel: viewModel.basicInfoVM)
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    bookingData()
+                    userInfo()
+                    touristsInfo()
+                    finalPrice()
+                }
+                .padding(.vertical, 8)
+                .background(Color("BackgraundGreyColor"))
                 VStack {
-                    BasicInformation(viewModel: viewModel.basicInfoVM)
+                    ButtonGoTo(viewModel: viewModel.buttonGoToVM) {
+                        if viewModel.checkTouristsInfo() {
+                            coordinator.goToPaidView()
+                        } else {
+                            viewModel.isShowErrorAlert.toggle()
+                            viewModel.deployAllTourists()
+                        }
+                    }
                 }
                 .padding()
                 .background(Color.white)
-                .cornerRadius(12)
-                bookingData()
-                userInfo()
-                touristsInfo()
-                finalPrice()
             }
-            .padding(.vertical, 8)
             .background(Color("BackgraundGreyColor"))
-            VStack {
-                ButtonGoTo(viewModel: viewModel.buttonGoToVM) {
-                    if viewModel.checkTouristsInfo() {
-                        coordinator.goToPaidView()
-                    } else {
-                        viewModel.isShowErrorAlert.toggle()
-                        viewModel.deployAllTourists()
-                    }
-                }
-            }
-            .padding()
-            .background(Color.white)
-
         }
         .modifier(BackgroundElement(name: viewModel.name, completion: {
             coordinator.goBack()
