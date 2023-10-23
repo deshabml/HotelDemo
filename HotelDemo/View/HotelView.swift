@@ -78,35 +78,38 @@ extension HotelView {
 
     private func ditailedList() -> some View {
         VStack {
-            List {
-                Section {
-                    ForEach(viewModel.detailedInfo, id: \.self) { detail in
-                        HStack {
-                            Image(detail.imegeName)
-                                .frame(width: 24, height: 24)
-                            VStack(alignment: .leading) {
-                                Text(detail.name)
-                                    .font(.custom("SF Pro Display",
-                                                  size: CGFloat(16)))
-                                Text("Самое необходимое")
-                                    .font(.custom("SF Pro Display",
-                                                  size: CGFloat(14)))
-                                    .foregroundColor(.secondary)
+            VStack(alignment: .trailing, spacing: 10) {
+                ForEach(viewModel.detailedInfo, id: \.self) { detail in
+                    HStack(alignment: .center, spacing: 12) {
+                        Image(detail.imegeName)
+                            .frame(width: 24, height: 24)
+                        VStack(spacing: 10) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(detail.name)
+                                        .font(.custom("SF Pro Display",
+                                                      size: CGFloat(16)))
+                                    Text("Самое необходимое")
+                                        .font(.custom("SF Pro Display",
+                                                      size: CGFloat(14)))
+                                        .foregroundColor(.secondary)
+                                }
+                                Spacer()
+                                Image(systemName: "chevron.right")
                             }
-                            Spacer()
-                            Image(systemName: "chevron.right")
+                            if detail != viewModel.detailedInfo.last {
+                                Divider()
+                            }
                         }
-                        .frame(maxWidth: .infinity)
-                        .listRowBackground(Color.clear)
+
                     }
+                    .listRowBackground(Color.clear)
                 }
-                .listSectionSeparator(.hidden, edges: .bottom)
             }
-            .listStyle(.plain)
-            .frame(height: 176)
+            .padding(15)
         }
         .background(Color("ListBackgraundColor"))
-        .cornerRadius(12)
+        .cornerRadius(15)
     }
     
 }
