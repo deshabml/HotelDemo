@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BookingView: View {
 
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = BookingViewModel()
 
@@ -44,7 +43,7 @@ struct BookingView: View {
 
         }
         .modifier(BackgroundElement(name: viewModel.name, completion: {
-            self.presentationMode.wrappedValue.dismiss()
+            coordinator.goBack()
         }))
         .alert("Все поля должны быть заполнены!", isPresented: $viewModel.isShowErrorAlert) {
             Button("ОК") { }
@@ -67,8 +66,8 @@ struct BookingView_Previews: PreviewProvider {
 extension BookingView {
 
     private func bookingDataCell(title: String, value: String) -> some View {
-        HStack() {
-            HStack() {
+        HStack {
+            HStack {
                 Text(title)
                     .font(Font.custom("SF Pro Display", size: 16))
                     .foregroundColor(.secondary)
@@ -77,6 +76,7 @@ extension BookingView {
             .frame(width: 140)
             Text(value)
             Spacer()
+                .font(Font.custom("SF Pro Display", size: 16))
         }
     }
 

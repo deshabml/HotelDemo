@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct PaidView: View {
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = PaidViewModel()
     
@@ -57,7 +56,7 @@ struct PaidView: View {
             }
         }
         .modifier(BackgroundElement(name: viewModel.name, completion: {
-            self.presentationMode.wrappedValue.dismiss()
+            coordinator.goBack()
         }))
     }
     

@@ -101,7 +101,6 @@ extension HotelView {
                                 Divider()
                             }
                         }
-
                     }
                     .listRowBackground(Color.clear)
                 }
