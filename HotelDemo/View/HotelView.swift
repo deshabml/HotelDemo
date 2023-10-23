@@ -80,29 +80,38 @@ extension HotelView {
         VStack {
             VStack(alignment: .trailing, spacing: 10) {
                 ForEach(viewModel.detailedInfo, id: \.self) { detail in
-                    HStack(alignment: .center, spacing: 12) {
-                        Image(detail.imegeName)
-                            .frame(width: 24, height: 24)
-                        VStack(spacing: 10) {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(detail.name)
-                                        .font(.custom("SF Pro Display",
-                                                      size: CGFloat(16)))
-                                    Text("Самое необходимое")
-                                        .font(.custom("SF Pro Display",
-                                                      size: CGFloat(14)))
-                                        .foregroundColor(.secondary)
+                    Button { } label: {
+                        HStack(alignment: .center, spacing: 12) {
+                            VStack(spacing: 10) {
+                                Image(detail.imegeName)
+                                    .frame(width: 24, height: 24)
+                                if detail != viewModel.detailedInfo.last {
+                                    Image(systemName: "minus")
+                                        .frame(width: 24, height: 1)
+                                        .foregroundColor(Color("ListBackgraundColor"))
                                 }
-                                Spacer()
-                                Image(systemName: "chevron.right")
                             }
-                            if detail != viewModel.detailedInfo.last {
-                                Divider()
+                            VStack(spacing: 10) {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(detail.name)
+                                            .font(.custom("SF Pro Display",
+                                                          size: CGFloat(16)))
+                                        Text("Самое необходимое")
+                                            .font(.custom("SF Pro Display",
+                                                          size: CGFloat(14)))
+                                            .foregroundColor(.secondary)
+                                    }
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                }
+                                if detail != viewModel.detailedInfo.last {
+                                    Divider()
+                                }
                             }
                         }
+                        .foregroundColor(.black)
                     }
-                    .listRowBackground(Color.clear)
                 }
             }
             .padding(15)
