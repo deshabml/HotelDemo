@@ -68,8 +68,8 @@ struct BookingView_Previews: PreviewProvider {
 extension BookingView {
 
     private func bookingDataCell(title: String, value: String) -> some View {
-        HStack {
-            HStack {
+        HStack(alignment: .top) {
+            HStack(alignment: .top) {
                 Text(title)
                     .font(Font.custom("SF Pro Display", size: 16))
                     .foregroundColor(.secondary)
