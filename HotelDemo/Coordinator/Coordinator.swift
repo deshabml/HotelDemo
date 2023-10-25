@@ -18,6 +18,10 @@ final class Coordinator: ObservableObject {
         path.removeLast(path.count)
     }
 
+    func goBack() {
+        path.removeLast()
+    }
+
     func goToHotelRoom() {
         path.append(MyPage.hotelRoom)
     }

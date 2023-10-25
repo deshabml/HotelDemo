@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HotelRoomView: View {
 
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = HotelRoomViewModel()
 
@@ -28,7 +27,7 @@ struct HotelRoomView: View {
             .background(Color("BackgraundGreyColor"))
         }
         .modifier(BackgroundElement(name: viewModel.name, completion: {
-            self.presentationMode.wrappedValue.dismiss()
+            coordinator.goBack()
         }))
         .onAppear {
             viewModel.setupName(name: coordinator.hotelName)

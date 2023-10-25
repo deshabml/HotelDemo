@@ -11,6 +11,7 @@ import UIKit
 final class HotelViewModel: ObservableObject {
 
     @Published var hotel = Hotel.clearHotel
+    @Published var isTapDitailedListElement = false
     let detailedInfo = [Detailed(name: "Удобства", imegeName: "Happy"),
                         Detailed(name: "Что включено", imegeName: "TickSquare"),
                         Detailed(name: "Что не включено", imegeName: "CloseSquare")]

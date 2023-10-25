@@ -9,42 +9,43 @@ import SwiftUI
 
 struct BookingView: View {
 
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = BookingViewModel()
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 8) {
+            VStack(spacing: 2) {
+                VStack(spacing: 8) {
+                    VStack {
+                        BasicInformation(viewModel: viewModel.basicInfoVM)
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    bookingData()
+                    userInfo()
+                    touristsInfo()
+                    finalPrice()
+                }
+                .padding(.vertical, 8)
+                .background(Color("BackgraundGreyColor"))
                 VStack {
-                    BasicInformation(viewModel: viewModel.basicInfoVM)
+                    ButtonGoTo(viewModel: viewModel.buttonGoToVM) {
+                        if viewModel.checkTouristsInfo() {
+                            coordinator.goToPaidView()
+                        } else {
+                            viewModel.isShowErrorAlert.toggle()
+                            viewModel.deployAllTourists()
+                        }
+                    }
                 }
                 .padding()
                 .background(Color.white)
-                .cornerRadius(12)
-                bookingData()
-                userInfo()
-                touristsInfo()
-                finalPrice()
             }
-            .padding(.vertical, 8)
             .background(Color("BackgraundGreyColor"))
-            VStack {
-                ButtonGoTo(viewModel: viewModel.buttonGoToVM) {
-                    if viewModel.checkTouristsInfo() {
-                        coordinator.goToPaidView()
-                    } else {
-                        viewModel.isShowErrorAlert.toggle()
-                        viewModel.deployAllTourists()
-                    }
-                }
-            }
-            .padding()
-            .background(Color.white)
-
         }
         .modifier(BackgroundElement(name: viewModel.name, completion: {
-            self.presentationMode.wrappedValue.dismiss()
+            coordinator.goBack()
         }))
         .alert("Все поля должны быть заполнены!", isPresented: $viewModel.isShowErrorAlert) {
             Button("ОК") { }
@@ -67,8 +68,8 @@ struct BookingView_Previews: PreviewProvider {
 extension BookingView {
 
     private func bookingDataCell(title: String, value: String) -> some View {
-        HStack() {
-            HStack() {
+        HStack(alignment: .top) {
+            HStack(alignment: .top) {
                 Text(title)
                     .font(Font.custom("SF Pro Display", size: 16))
                     .foregroundColor(.secondary)
@@ -77,6 +78,7 @@ extension BookingView {
             .frame(width: 140)
             Text(value)
             Spacer()
+                .font(Font.custom("SF Pro Display", size: 16))
         }
     }
 
@@ -143,8 +145,8 @@ extension BookingView {
                         Text("Добавить туриста")
                         Spacer()
                         Button {
-                            viewModel.tourists.append(Tourist.clearTourist)
                             viewModel.toutistsCells.append(TouristCellViewModel(index: viewModel.tourists.count))
+                            viewModel.tourists.append(Tourist.clearTourist)
                         } label: {
                             Image(systemName: "plus")
                                 .padding(.horizontal, 10)
