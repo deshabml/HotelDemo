@@ -30,7 +30,7 @@ enum Server: String {
 
 enum EndPoint: String {
 
-    case hotel = "/v3/c475f82a-d5a8-43c2-841f-53f4297e0753"
+    case hotel = "/v3/9dcf1c93-10dd-4d99-8f47-874d92883a9c"
 //    case hotel = "/v3/35e0d18e-2521-4f1b-a575-f0fe366f66e3"
     case hotelRoom = "/v3/2a8ee4bb-ab26-4587-8881-bc85462a50c1"
 //    case hotelRoom = "/v3/f9a38183-6f95-43aa-853a-9c83cbb05ecd"
