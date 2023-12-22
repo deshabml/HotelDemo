@@ -5,7 +5,6 @@
 - Swift
 - MVVM + Coordinator
 - SwiftUI
-- Combine
 - Async/Await
 
 <div align="center">
